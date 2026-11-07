@@ -1,0 +1,18 @@
+{
+  "built_utc": "2026-11-07T21:01:21Z",
+  "embedding_model": "nomic-embed-text",
+  "chunk_size": 1000,
+  "chunk_overlap": 150,
+  "total_chunks": 1497,
+  "chunks_per_doc": {
+    "ai_act": 743,
+    "gdpr": 448,
+    "cbi_outsourcing": 218,
+    "cbi_op_resilience": 88
+  },
+  "chunk_chars_min": 53,
+  "chunk_chars_mean": 861.3,
+  "chunk_chars_max": 1000,
+  "split_seconds": 1.04,
+  "embed_and_store_seconds": 21.02
+}
