@@ -70,3 +70,25 @@ def bm25_search(query: str, k: int = config.TOP_K, doc_ids: list[str] | None = N
         if len(hits) == k:
             break
     return hits
+
+
+RRF_K = 60  # standard constant for Reciprocal Rank Fusion
+
+
+def hybrid_search(query: str, keywords: list[str] | None = None, k_each: int = 10,
+                  doc_ids: list[str] | None = None) -> list[Document]:
+    """Vector search + BM25 keyword search, merged with Reciprocal Rank Fusion.
+
+    Each list gives a passage 1 / (60 + rank) points; passages found by both
+    searches add up and rise to the top. Returns up to 2 * k_each unique passages.
+    """
+    keyword_query = " ".join([query, *(keywords or [])])
+    lists = [vector_search(query, k_each, doc_ids), bm25_search(keyword_query, k_each, doc_ids)]
+    scores, docs = {}, {}
+    for hits in lists:
+        for rank, d in enumerate(hits, start=1):
+            cid = d.metadata["chunk_id"]
+            scores[cid] = scores.get(cid, 0.0) + 1.0 / (RRF_K + rank)
+            docs[cid] = d
+    order = sorted(scores, key=scores.get, reverse=True)
+    return [docs[cid] for cid in order]
