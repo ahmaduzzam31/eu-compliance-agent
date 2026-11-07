@@ -1,0 +1,29 @@
+# Secrets: API keys only ever live in .env, never in git
+.env
+.env.*
+!.env.example
+
+# Python virtual environment and caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Large raw data: the PDFs are re-downloaded by scripts/download_data.py
+data/raw/
+
+# Vector database and search index files (rebuilt by the indexing script)
+chroma_db/
+data/index/
+*.sqlite3
+*.bin
+*.pkl
+
+# Model caches
+.cache/
+models/
+
+# Mac and editor files
+.DS_Store
+.vscode/
+.idea/
