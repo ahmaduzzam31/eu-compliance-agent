@@ -27,6 +27,44 @@ Question: {question}
 Answer:"""
 
 
+# ---------- Agent-only prompts (the baseline does not rewrite, route or grade) ----------
+
+LIBRARY = """The library has four documents:
+- ai_act: EU Artificial Intelligence Act, Regulation (EU) 2024/1689. Rules for AI systems: prohibited
+  practices, high-risk AI systems, transparency duties, general-purpose AI models, penalties.
+- gdpr: General Data Protection Regulation, Regulation (EU) 2016/679. Personal data, lawful processing,
+  consent, data subject rights, controllers and processors, DPIAs, data breaches, fines.
+- cbi_outsourcing: Central Bank of Ireland Cross-Industry Guidance on Outsourcing (December 2021).
+  Outsourcing by regulated financial firms: critical or important functions, service providers,
+  intragroup and cloud outsourcing, sub-outsourcing, outsourcing registers, exit strategies.
+- cbi_op_resilience: Central Bank of Ireland Cross Industry Guidance on Operational Resilience (July 2025).
+  Important business services, impact tolerances, mapping, scenario testing, incident response, DORA."""
+
+REWRITE_SYSTEM = f"""You prepare search queries for a regulation library. Do not answer the question.
+{LIBRARY}
+
+Tasks:
+1. query: rewrite the question as one clear, standalone search query using the formal wording these
+   documents would use (for example "natural persons" instead of "people", "data subject" instead of "customer").
+   Keep the original meaning.
+2. keywords: 3 to 8 exact words or short phrases likely to appear in the relevant passage
+   (for example "Article 17", "erasure", "impact tolerance").
+3. documents: the document ids most likely to contain the answer. Pick one or more.
+   If you are not sure, include all four."""
+
+RETRY_NOTE = """A previous search with the query "{previous}" found no passage that answers the question.
+Write a different query: use other wording or broader terms. Search all four documents."""
+
+GRADE_SYSTEM = """You check whether a passage from a regulation helps answer a question.
+Say relevant = true only if the passage states facts that are needed to answer the question.
+Say relevant = false if it is only on the same general topic but does not help answer it."""
+
+GRADE_USER = """Question: {question}
+
+Passage ({label}):
+{passage}"""
+
+
 def source_label(meta: dict) -> str:
     """Human-readable citation, e.g. 'GDPR, Article 17, page 43'."""
     parts = [meta["doc_label"]]
