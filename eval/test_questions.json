@@ -1,0 +1,192 @@
+{
+  "description": "30 test questions for comparing baseline RAG and agentic RAG. 25 answerable from the four source documents (reference answers paraphrase the cited text) and 5 that the documents cannot answer (key terms checked against all 1,497 chunks).",
+  "authorship": "Drafted with AI help (Claude) from the document text; every reference answer was checked against the cited page.",
+  "status": "checked and approved by Ahmad Uzzam on 2026-11-07",
+  "questions": [
+    {
+      "id": "Q01", "category": "ai_act", "answerable": true,
+      "question": "When does the AI Act start to apply, and do any parts apply earlier or later?",
+      "reference_answer": "The AI Act entered into force on the twentieth day after publication and applies from 2 August 2026. However, Chapters I and II apply from 2 February 2025; Chapter III Section 4, Chapter V, Chapter VII, Chapter XII and Article 78 apply from 2 August 2025 (except Article 101); and Article 6(1) with its corresponding obligations applies from 2 August 2027.",
+      "sources": [{"doc_id": "ai_act", "section": "Article 113", "page": 123}]
+    },
+    {
+      "id": "Q02", "category": "ai_act", "answerable": true,
+      "question": "Is social scoring of people banned under the EU AI Act?",
+      "reference_answer": "Yes. Article 5(1)(c) prohibits AI systems that evaluate or classify natural persons or groups over a period of time based on their social behaviour or known, inferred or predicted personal or personality characteristics, where the social score leads to detrimental or unfavourable treatment in social contexts unrelated to where the data was generated or collected, or to treatment that is unjustified or disproportionate to their social behaviour or its gravity.",
+      "sources": [{"doc_id": "ai_act", "section": "Article 5", "page": 51}]
+    },
+    {
+      "id": "Q03", "category": "ai_act", "answerable": true,
+      "question": "What is the maximum fine for using a prohibited AI practice?",
+      "reference_answer": "Non-compliance with the prohibited AI practices in Article 5 can lead to administrative fines of up to EUR 35 000 000 or, if the offender is an undertaking, up to 7 % of its total worldwide annual turnover for the preceding financial year, whichever is higher.",
+      "sources": [{"doc_id": "ai_act", "section": "Article 99", "page": 115}]
+    },
+    {
+      "id": "Q04", "category": "ai_act", "answerable": true,
+      "question": "How does the AI Act define an 'AI system'?",
+      "reference_answer": "An AI system is a machine-based system designed to operate with varying levels of autonomy, which may show adaptiveness after deployment, and which, for explicit or implicit objectives, infers from the input it receives how to generate outputs such as predictions, content, recommendations or decisions that can influence physical or virtual environments.",
+      "sources": [{"doc_id": "ai_act", "section": "Article 3", "page": 46}]
+    },
+    {
+      "id": "Q05", "category": "ai_act", "answerable": true,
+      "question": "Can my company use AI to work out how employees are feeling at work?",
+      "reference_answer": "Generally no. Article 5(1)(f) prohibits placing on the market, putting into service or using AI systems to infer the emotions of a natural person in the workplace and in education institutions, except where the AI system is intended to be put in place or on the market for medical or safety reasons.",
+      "sources": [{"doc_id": "ai_act", "section": "Article 5", "page": 51}]
+    },
+    {
+      "id": "Q06", "category": "ai_act", "answerable": true,
+      "question": "If we publish a deepfake video made with AI, do we have to say so?",
+      "reference_answer": "Yes. Under Article 50(4), deployers of an AI system that generates or manipulates image, audio or video content constituting a deep fake must disclose that the content has been artificially generated or manipulated. This does not apply where the use is authorised by law to detect, prevent, investigate or prosecute criminal offences. For evidently artistic, creative, satirical, fictional or similar work, the duty is limited to disclosing the existence of such content in an appropriate way that does not hamper the display or enjoyment of the work.",
+      "sources": [{"doc_id": "ai_act", "section": "Article 50", "page": 82}]
+    },
+    {
+      "id": "Q07", "category": "ai_act", "answerable": true,
+      "question": "What does the AI Act require companies to do about AI literacy for their staff?",
+      "reference_answer": "Under Article 4, providers and deployers of AI systems must take measures to ensure, to their best extent, a sufficient level of AI literacy of their staff and other persons dealing with the operation and use of AI systems on their behalf, taking into account their technical knowledge, experience, education and training, the context the AI systems are used in, and the persons on whom the systems are used.",
+      "sources": [{"doc_id": "ai_act", "section": "Article 4", "page": 51}]
+    },
+    {
+      "id": "Q08", "category": "ai_act", "answerable": true,
+      "question": "What is the purpose of human oversight for high-risk AI systems?",
+      "reference_answer": "Under Article 14(2), human oversight aims to prevent or minimise the risks to health, safety or fundamental rights that may emerge when a high-risk AI system is used in accordance with its intended purpose or under conditions of reasonably foreseeable misuse, in particular where such risks persist despite the application of the other requirements in that Section.",
+      "sources": [{"doc_id": "ai_act", "section": "Article 14", "page": 60}]
+    },
+    {
+      "id": "Q09", "category": "gdpr", "answerable": true,
+      "question": "How quickly must a company report a personal data breach to the regulator?",
+      "reference_answer": "Under Article 33(1), the controller must notify the competent supervisory authority without undue delay and, where feasible, not later than 72 hours after becoming aware of the breach, unless the breach is unlikely to result in a risk to the rights and freedoms of natural persons. If notification is made later than 72 hours, it must be accompanied by the reasons for the delay.",
+      "sources": [{"doc_id": "gdpr", "section": "Article 33", "page": 52}, {"doc_id": "gdpr", "section": "Recitals", "page": 17}]
+    },
+    {
+      "id": "Q10", "category": "gdpr", "answerable": true,
+      "question": "What are the legal grounds that make processing of personal data lawful under GDPR?",
+      "reference_answer": "Article 6(1) says processing is lawful only if at least one applies: (a) the data subject has given consent; (b) it is necessary for a contract with the data subject or steps before entering a contract; (c) it is necessary for compliance with a legal obligation; (d) it is necessary to protect the vital interests of the data subject or another natural person; (e) it is necessary for a task in the public interest or official authority; (f) it is necessary for legitimate interests of the controller or a third party, unless overridden by the data subject's interests or rights. Point (f) does not apply to public authorities performing their tasks.",
+      "sources": [{"doc_id": "gdpr", "section": "Article 6", "page": 36}]
+    },
+    {
+      "id": "Q11", "category": "gdpr", "answerable": true,
+      "question": "What is the highest fine a company can get under GDPR?",
+      "reference_answer": "Under Article 83(5) and (6), the highest administrative fines are up to 20 000 000 EUR or, for an undertaking, up to 4 % of total worldwide annual turnover of the preceding financial year, whichever is higher.",
+      "sources": [{"doc_id": "gdpr", "section": "Article 83", "page": 83}]
+    },
+    {
+      "id": "Q12", "category": "gdpr", "answerable": true,
+      "question": "When is a data protection impact assessment mandatory?",
+      "reference_answer": "Article 35(3) says a DPIA is required in particular for: (a) a systematic and extensive evaluation of personal aspects based on automated processing, including profiling, on which decisions with legal or similarly significant effects are based; (b) processing on a large scale of special categories of data (Article 9(1)) or of data on criminal convictions and offences (Article 10); or (c) systematic monitoring of a publicly accessible area on a large scale.",
+      "sources": [{"doc_id": "gdpr", "section": "Article 35", "page": 53}]
+    },
+    {
+      "id": "Q13", "category": "gdpr", "answerable": true,
+      "question": "From what age can a child give their own consent to an online service under GDPR?",
+      "reference_answer": "Under Article 8(1), for information society services offered directly to a child, processing based on consent is lawful where the child is at least 16 years old. Below 16, consent must be given or authorised by the holder of parental responsibility. Member States may set a lower age by law, but not below 13 years.",
+      "sources": [{"doc_id": "gdpr", "section": "Article 8", "page": 37}]
+    },
+    {
+      "id": "Q14", "category": "gdpr", "answerable": true,
+      "question": "Can customers ask to get their personal data in a format they can move to another company?",
+      "reference_answer": "Yes. Under Article 20 (right to data portability), the data subject can receive the personal data they provided to a controller in a structured, commonly used and machine-readable format and transmit it to another controller without hindrance, where the processing is based on consent or a contract and is carried out by automated means.",
+      "sources": [{"doc_id": "gdpr", "section": "Article 20", "page": 45}]
+    },
+    {
+      "id": "Q15", "category": "gdpr", "answerable": true,
+      "question": "When does an organisation have to appoint a Data Protection Officer?",
+      "reference_answer": "Under Article 37(1), the controller and processor must designate a DPO where: (a) processing is carried out by a public authority or body, except courts acting in their judicial capacity; (b) their core activities require regular and systematic monitoring of data subjects on a large scale; or (c) their core activities consist of large-scale processing of special categories of data (Article 9) or personal data on criminal convictions and offences (Article 10).",
+      "sources": [{"doc_id": "gdpr", "section": "Article 37", "page": 55}]
+    },
+    {
+      "id": "Q16", "category": "gdpr", "answerable": true,
+      "question": "How long does a company have to respond when someone exercises their data protection rights?",
+      "reference_answer": "Under Article 12(3), the controller must provide information on action taken without undue delay and in any event within one month of receiving the request. This can be extended by two further months where necessary, considering the complexity and number of requests, and the data subject must be told of any extension and the reasons within one month.",
+      "sources": [{"doc_id": "gdpr", "section": "Article 12", "page": 40}]
+    },
+    {
+      "id": "Q17", "category": "cbi_outsourcing", "answerable": true,
+      "question": "Should a regulated firm treat outsourcing to its own group companies differently from outsourcing to an outside provider?",
+      "reference_answer": "No, it should be just as rigorous. The Central Bank says intragroup outsourcing can bring similar benefits to third-party outsourcing but can carry the same risks, and can also present unique risks. It expects firms to apply the same rigour to intragroup outsourcing risk assessments as to third-party service provider assessments.",
+      "sources": [{"doc_id": "cbi_outsourcing", "section": "", "page": 13}]
+    },
+    {
+      "id": "Q18", "category": "cbi_outsourcing", "answerable": true,
+      "question": "Can the board of a regulated firm hand over responsibility for outsourced activities to the service provider?",
+      "reference_answer": "No. Boards and senior management are responsible for all activities of the firm, including outsourced activities performed by third parties or group entities, and are ultimately accountable for the effective oversight and management of outsourcing risk. While functions and activities can be outsourced, boards and senior management cannot outsource their responsibilities.",
+      "sources": [{"doc_id": "cbi_outsourcing", "section": "", "page": 15}]
+    },
+    {
+      "id": "Q19", "category": "cbi_outsourcing", "answerable": true,
+      "question": "In which situations does the Central Bank expect firms to plan how they would exit an outsourcing arrangement?",
+      "reference_answer": "When entering an outsourcing arrangement, firms should plan how they would exit it, for example in case of: (a) failure by the service provider to provide the service to the required standard; (b) unexpected termination of the arrangement by the provider; (c) stressed circumstances at the provider such as hostile takeover, insolvency or liquidation; or (d) any other circumstance the firm envisages may prompt it to exit.",
+      "sources": [{"doc_id": "cbi_outsourcing", "section": "", "page": 43}]
+    },
+    {
+      "id": "Q20", "category": "cbi_outsourcing", "answerable": true,
+      "question": "What does concentration risk mean in the Central Bank's outsourcing guidance?",
+      "reference_answer": "Concentration risk is over-dependence on a single or small number of outsourcing service providers who cannot easily be substituted, for example where a firm relies on one or a few providers for its critical or important functions. It can also arise on a sectoral or cross-sectoral basis.",
+      "sources": [{"doc_id": "cbi_outsourcing", "section": "", "page": 21}, {"doc_id": "cbi_outsourcing", "section": "", "page": 71}]
+    },
+    {
+      "id": "Q21", "category": "cbi_op_resilience", "answerable": true,
+      "question": "How often should a firm's board review and approve its impact tolerances?",
+      "reference_answer": "The Central Bank expects a firm's board to review and approve impact tolerances at least annually, or following a disruption, to make sure they remain fit for purpose.",
+      "sources": [{"doc_id": "cbi_op_resilience", "section": "", "page": 22}]
+    },
+    {
+      "id": "Q22", "category": "cbi_op_resilience", "answerable": true,
+      "question": "What are the three pillars of operational resilience in the Central Bank guidance?",
+      "reference_answer": "Pillar 1: Identify and Prepare; Pillar 2: Respond and Adapt; Pillar 3: Recover and Learn.",
+      "sources": [{"doc_id": "cbi_op_resilience", "section": "", "page": 2}, {"doc_id": "cbi_op_resilience", "section": "", "page": 28}, {"doc_id": "cbi_op_resilience", "section": "", "page": 31}]
+    },
+    {
+      "id": "Q23", "category": "cbi_op_resilience", "answerable": true,
+      "question": "Which older Central Bank guidance was withdrawn when the operational resilience guidance was updated in July 2025?",
+      "reference_answer": "The Central Bank withdrew its September 2016 Cross Industry Guidance in respect of Information Technology and Cybersecurity Risk Management, as part of updates that also aligned the guidance with DORA.",
+      "sources": [{"doc_id": "cbi_op_resilience", "section": "", "page": 3}]
+    },
+    {
+      "id": "Q24", "category": "cross_document", "answerable": true,
+      "question": "If a company deploys a high-risk AI system that processes personal data, how does the AI Act link to the GDPR's data protection impact assessment?",
+      "reference_answer": "Under AI Act Article 26(9), where applicable, deployers of high-risk AI systems must use the information the provider gives under Article 13 of the AI Act to comply with their obligation to carry out a data protection impact assessment under Article 35 of the GDPR. GDPR Article 35 requires a DPIA in cases such as systematic and extensive automated evaluation, including profiling, with legal or similarly significant effects.",
+      "sources": [{"doc_id": "ai_act", "section": "Article 26", "page": 68}, {"doc_id": "gdpr", "section": "Article 35", "page": 53}]
+    },
+    {
+      "id": "Q25", "category": "cross_document", "answerable": true,
+      "question": "A bank wants to use AI to decide who gets a loan. Is that high-risk under the AI Act, and what right does GDPR give customers about decisions made only by automated means?",
+      "reference_answer": "Yes. AI Act Annex III point 5(b) lists AI systems intended to evaluate the creditworthiness of natural persons or establish their credit score as high-risk, except systems used to detect financial fraud. Under GDPR Article 22(1), the data subject has the right not to be subject to a decision based solely on automated processing, including profiling, that produces legal or similarly significant effects, unless the decision is necessary for a contract, authorised by Union or Member State law with safeguards, or based on explicit consent.",
+      "sources": [{"doc_id": "ai_act", "section": "ANNEX III", "page": 127}, {"doc_id": "gdpr", "section": "Article 22", "page": 46}]
+    },
+    {
+      "id": "Q26", "category": "unanswerable", "answerable": false,
+      "question": "What loan-to-value limit applies to first-time buyers under the Central Bank of Ireland's mortgage rules?",
+      "reference_answer": "I don't know based on the provided documents.",
+      "sources": [],
+      "absence_check": "0 chunks contain 'loan-to-value', 'loan to value', 'mortgage measures', 'first-time buyer' or 'LTV'."
+    },
+    {
+      "id": "Q27", "category": "unanswerable", "answerable": false,
+      "question": "Which Irish authority has been designated to enforce the AI Act in Ireland?",
+      "reference_answer": "I don't know based on the provided documents.",
+      "sources": [],
+      "absence_check": "The AI Act mentions Ireland only in recital 40 (Protocol No 21 on judicial and police cooperation); no document names an Irish AI Act authority."
+    },
+    {
+      "id": "Q28", "category": "unanswerable", "answerable": false,
+      "question": "How many complaints did the Irish Data Protection Commission receive in 2023?",
+      "reference_answer": "I don't know based on the provided documents.",
+      "sources": [],
+      "absence_check": "0 chunks contain 'Data Protection Commission' or 'complaints received'."
+    },
+    {
+      "id": "Q29", "category": "unanswerable", "answerable": false,
+      "question": "Up to what amount are bank deposits protected in Ireland under the deposit guarantee scheme?",
+      "reference_answer": "I don't know based on the provided documents.",
+      "sources": [],
+      "absence_check": "0 chunks contain 'deposit guarantee', 'deposit protection', '100 000' or '100,000'."
+    },
+    {
+      "id": "Q30", "category": "unanswerable", "answerable": false,
+      "question": "When will the digital euro be launched?",
+      "reference_answer": "I don't know based on the provided documents.",
+      "sources": [],
+      "absence_check": "0 chunks contain 'digital euro'."
+    }
+  ]
+}
