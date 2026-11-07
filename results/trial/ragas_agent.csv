@@ -1,0 +1,3 @@
+id,refused,faithfulness,answer_relevancy,context_precision,context_recall
+Q01,False,1.0,0.9572225575777172,0.49999999995,0.25
+Q17,False,1.0,0.8430230554495958,0.99999999995,0.6666666666666666
