@@ -1,0 +1,242 @@
+30 questions, systems: baseline, agent, output: /Users/ahmaduzzam/Desktop/ai-projects/eu-compliance-agent/results
+  [baseline] 1/30 Q01 answered in 11.36 s
+  [baseline] 2/30 Q02 answered in 6.06 s
+  [baseline] 3/30 Q03 answered in 3.88 s
+  [baseline] 4/30 Q04 answered in 4.33 s
+  [baseline] 5/30 Q05 answered in 5.07 s
+  [baseline] 6/30 Q06 answered in 5.08 s
+  [baseline] 7/30 Q07 answered in 3.34 s
+  [baseline] 8/30 Q08 answered in 5.31 s
+  [baseline] 9/30 Q09 answered in 3.61 s
+  [baseline] 10/30 Q10 answered in 5.31 s
+  [baseline] 11/30 Q11 refused in 2.57 s
+  [baseline] 12/30 Q12 answered in 4.59 s
+  [baseline] 13/30 Q13 answered in 4.5 s
+  [baseline] 14/30 Q14 answered in 4.03 s
+  [baseline] 15/30 Q15 answered in 7.44 s
+  [baseline] 16/30 Q16 answered in 4.32 s
+  [baseline] 17/30 Q17 answered in 5.19 s
+  [baseline] 18/30 Q18 answered in 3.67 s
+  [baseline] 19/30 Q19 answered in 5.98 s
+  [baseline] 20/30 Q20 answered in 4.53 s
+  [baseline] 21/30 Q21 answered in 3.03 s
+  [baseline] 22/30 Q22 answered in 3.02 s
+  [baseline] 23/30 Q23 answered in 3.59 s
+  [baseline] 24/30 Q24 answered in 4.86 s
+  [baseline] 25/30 Q25 answered in 4.15 s
+  [baseline] 26/30 Q26 refused in 3.01 s
+  [baseline] 27/30 Q27 refused in 2.88 s
+  [baseline] 28/30 Q28 refused in 2.56 s
+  [baseline] 29/30 Q29 refused in 2.6 s
+  [baseline] 30/30 Q30 refused in 2.62 s
+W1107 21:53:16.204000 4033 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11177.25it/s]
+  [agent] 1/30 Q01 answered in 13.47 s
+  [agent] 2/30 Q02 answered in 8.3 s
+  [agent] 3/30 Q03 answered in 8.15 s
+  [agent] 4/30 Q04 answered in 10.91 s
+  [agent] 5/30 Q05 refused in 13.67 s
+  [agent] 6/30 Q06 answered in 9.7 s
+  [agent] 7/30 Q07 answered in 9.2 s
+  [agent] 8/30 Q08 answered in 10.01 s
+  [agent] 9/30 Q09 answered in 9.78 s
+  [agent] 10/30 Q10 answered in 8.37 s
+  [agent] 11/30 Q11 answered in 10.22 s
+  [agent] 12/30 Q12 answered in 11.27 s
+  [agent] 13/30 Q13 answered in 9.31 s
+  [agent] 14/30 Q14 answered in 9.32 s
+  [agent] 15/30 Q15 answered in 11.63 s
+  [agent] 16/30 Q16 answered in 8.12 s
+  [agent] 17/30 Q17 answered in 11.29 s
+  [agent] 18/30 Q18 answered in 11.72 s
+  [agent] 19/30 Q19 answered in 12.23 s
+  [agent] 20/30 Q20 answered in 13.1 s
+  [agent] 21/30 Q21 answered in 9.17 s
+  [agent] 22/30 Q22 refused in 12.85 s
+  [agent] 23/30 Q23 answered in 10.65 s
+  [agent] 24/30 Q24 answered in 11.29 s
+  [agent] 25/30 Q25 answered in 14.21 s
+  [agent] 26/30 Q26 refused in 16.1 s
+  [agent] 27/30 Q27 refused in 14.56 s
+  [agent] 28/30 Q28 refused in 14.91 s
+  [agent] 29/30 Q29 refused in 12.98 s
+  [agent] 30/30 Q30 refused in 15.1 s
+Scoring baseline with RAGAS...
+/Users/ahmaduzzam/Desktop/ai-projects/eu-compliance-agent/scripts/evaluate.py:111: DeprecationWarning: Importing FactualCorrectness from 'ragas.metrics' is deprecated and will be removed in v1.0. Please use 'ragas.metrics.collections' instead. Example: from ragas.metrics.collections import FactualCorrectness
+  from ragas.metrics import (FactualCorrectness, Faithfulness, LLMContextPrecisionWithReference,
+/Users/ahmaduzzam/Desktop/ai-projects/eu-compliance-agent/scripts/evaluate.py:111: DeprecationWarning: Importing Faithfulness from 'ragas.metrics' is deprecated and will be removed in v1.0. Please use 'ragas.metrics.collections' instead. Example: from ragas.metrics.collections import Faithfulness
+  from ragas.metrics import (FactualCorrectness, Faithfulness, LLMContextPrecisionWithReference,
+/Users/ahmaduzzam/Desktop/ai-projects/eu-compliance-agent/scripts/evaluate.py:111: DeprecationWarning: Importing LLMContextPrecisionWithReference from 'ragas.metrics' is deprecated and will be removed in v1.0. Please use 'ragas.metrics.collections' instead. Example: from ragas.metrics.collections import LLMContextPrecisionWithReference
+  from ragas.metrics import (FactualCorrectness, Faithfulness, LLMContextPrecisionWithReference,
+/Users/ahmaduzzam/Desktop/ai-projects/eu-compliance-agent/scripts/evaluate.py:111: DeprecationWarning: Importing LLMContextRecall from 'ragas.metrics' is deprecated and will be removed in v1.0. Please use 'ragas.metrics.collections' instead. Example: from ragas.metrics.collections import LLMContextRecall
+  from ragas.metrics import (FactualCorrectness, Faithfulness, LLMContextPrecisionWithReference,
+/Users/ahmaduzzam/Desktop/ai-projects/eu-compliance-agent/scripts/evaluate.py:111: DeprecationWarning: Importing ResponseRelevancy from 'ragas.metrics' is deprecated and will be removed in v1.0. Please use 'ragas.metrics.collections' instead. Example: from ragas.metrics.collections import ResponseRelevancy
+  from ragas.metrics import (FactualCorrectness, Faithfulness, LLMContextPrecisionWithReference,
+/Users/ahmaduzzam/Desktop/ai-projects/eu-compliance-agent/scripts/evaluate.py:130: DeprecationWarning: LangchainLLMWrapper is deprecated and will be removed in a future version. Use llm_factory instead: from openai import OpenAI; from ragas.llms import llm_factory; llm = llm_factory('gpt-4o-mini', client=OpenAI(api_key='...'))
+  llm=LangchainLLMWrapper(get_llm()),
+/Users/ahmaduzzam/Desktop/ai-projects/eu-compliance-agent/scripts/evaluate.py:131: DeprecationWarning: LangchainEmbeddingsWrapper is deprecated and will be removed in a future version. Use the modern embedding providers instead: embedding_factory('openai', model='text-embedding-3-small', client=openai_client) or from ragas.embeddings import OpenAIEmbeddings, GoogleEmbeddings, HuggingFaceEmbeddings
+  embeddings=LangchainEmbeddingsWrapper(judge_embeddings),
+Evaluating:   0%|          | 0/125 [00:00<?, ?it/s]Evaluating:   1%|          | 1/125 [00:13<28:13, 13.66s/it]Evaluating:   2%|▏         | 2/125 [00:46<50:44, 24.75s/it]Evaluating:   2%|▏         | 3/125 [01:07<47:09, 23.20s/it]Evaluating:   3%|▎         | 4/125 [02:06<1:15:34, 37.48s/it]Evaluating:   4%|▍         | 5/125 [02:19<57:05, 28.55s/it]  Evaluating:   5%|▍         | 6/125 [02:32<45:58, 23.18s/it]Evaluating:   6%|▌         | 7/125 [02:37<33:49, 17.20s/it]Evaluating:   6%|▋         | 8/125 [02:52<32:02, 16.43s/it]Evaluating:   7%|▋         | 9/125 [03:40<50:56, 26.35s/it]Evaluating:   8%|▊         | 10/125 [03:51<41:31, 21.66s/it]Evaluating:   9%|▉         | 11/125 [04:00<33:56, 17.87s/it]Evaluating:  10%|▉         | 12/125 [04:07<27:09, 14.42s/it]Evaluating:  10%|█         | 13/125 [04:19<25:29, 13.66s/it]Evaluating:  11%|█         | 14/125 [04:53<37:07, 20.07s/it]Evaluating:  12%|█▏        | 15/125 [05:08<33:34, 18.31s/it]Evaluating:  13%|█▎        | 16/125 [05:24<32:08, 17.70s/it]Evaluating:  14%|█▎        | 17/125 [05:29<25:11, 14.00s/it]Evaluating:  14%|█▍        | 18/125 [05:41<23:50, 13.36s/it]Evaluating:  15%|█▌        | 19/125 [06:24<39:07, 22.15s/it]Evaluating:  16%|█▌        | 20/125 [06:38<34:29, 19.71s/it]Evaluating:  17%|█▋        | 21/125 [07:01<35:50, 20.67s/it]Evaluating:  18%|█▊        | 22/125 [07:08<28:32, 16.63s/it]Evaluating:  18%|█▊        | 23/125 [07:22<26:58, 15.87s/it]Evaluating:  19%|█▉        | 24/125 [08:15<45:18, 26.92s/it]Evaluating:  20%|██        | 25/125 [08:27<37:23, 22.43s/it]Evaluating:  21%|██        | 26/125 [08:44<34:39, 21.01s/it]Evaluating:  22%|██▏       | 27/125 [08:51<27:23, 16.77s/it]Evaluating:  22%|██▏       | 28/125 [09:11<28:39, 17.72s/it]Evaluating:  23%|██▎       | 29/125 [09:59<42:52, 26.79s/it]Evaluating:  24%|██▍       | 30/125 [10:09<34:06, 21.55s/it]Evaluating:  25%|██▍       | 31/125 [10:17<27:36, 17.62s/it]Evaluating:  26%|██▌       | 32/125 [10:22<21:34, 13.92s/it]Evaluating:  26%|██▋       | 33/125 [10:37<21:37, 14.10s/it]Evaluating:  27%|██▋       | 34/125 [11:20<34:34, 22.79s/it]Evaluating:  28%|██▊       | 35/125 [11:34<30:06, 20.07s/it]Evaluating:  29%|██▉       | 36/125 [11:53<29:41, 20.02s/it]Evaluating:  30%|██▉       | 37/125 [11:58<22:40, 15.46s/it]Evaluating:  30%|███       | 38/125 [12:10<20:46, 14.33s/it]Evaluating:  31%|███       | 39/125 [12:55<33:43, 23.53s/it]Evaluating:  32%|███▏      | 40/125 [13:08<29:01, 20.49s/it]Evaluating:  33%|███▎      | 41/125 [13:18<24:10, 17.27s/it]Evaluating:  34%|███▎      | 42/125 [13:26<19:57, 14.42s/it]Evaluating:  34%|███▍      | 43/125 [13:41<19:54, 14.57s/it]Evaluating:  35%|███▌      | 44/125 [14:20<29:38, 21.95s/it]Evaluating:  36%|███▌      | 45/125 [14:37<27:07, 20.34s/it]Evaluating:  37%|███▋      | 46/125 [15:00<27:47, 21.11s/it]Evaluating:  38%|███▊      | 47/125 [15:04<21:05, 16.23s/it]Evaluating:  38%|███▊      | 48/125 [15:32<25:16, 19.70s/it]Evaluating:  39%|███▉      | 49/125 [16:30<39:24, 31.11s/it]Evaluating:  40%|████      | 50/125 [16:41<31:32, 25.23s/it]Evaluating:  41%|████      | 51/125 [16:49<24:33, 19.92s/it]Evaluating:  42%|████▏     | 52/125 [16:54<18:48, 15.46s/it]Evaluating:  42%|████▏     | 53/125 [17:07<17:45, 14.80s/it]Evaluating:  43%|████▎     | 54/125 [17:44<25:20, 21.41s/it]Evaluating:  44%|████▍     | 55/125 [17:57<21:52, 18.75s/it]Evaluating:  45%|████▍     | 56/125 [18:12<20:14, 17.60s/it]Evaluating:  46%|████▌     | 57/125 [18:17<15:54, 14.04s/it]Evaluating:  46%|████▋     | 58/125 [18:39<18:17, 16.38s/it]Evaluating:  47%|████▋     | 59/125 [19:41<33:01, 30.02s/it]Evaluating:  48%|████▊     | 60/125 [19:57<27:50, 25.70s/it]Evaluating:  49%|████▉     | 61/125 [20:11<23:50, 22.36s/it]Evaluating:  50%|████▉     | 62/125 [20:18<18:28, 17.60s/it]Evaluating:  50%|█████     | 63/125 [20:42<20:18, 19.66s/it]Evaluating:  51%|█████     | 64/125 [21:30<28:32, 28.08s/it]Evaluating:  52%|█████▏    | 65/125 [21:45<24:05, 24.09s/it]Evaluating:  53%|█████▎    | 66/125 [21:59<20:49, 21.17s/it]Evaluating:  54%|█████▎    | 67/125 [22:06<16:15, 16.82s/it]Evaluating:  54%|█████▍    | 68/125 [22:22<15:59, 16.84s/it]Evaluating:  55%|█████▌    | 69/125 [23:12<24:46, 26.54s/it]Evaluating:  56%|█████▌    | 70/125 [23:29<21:50, 23.82s/it]Evaluating:  57%|█████▋    | 71/125 [23:46<19:36, 21.78s/it]Evaluating:  58%|█████▊    | 72/125 [23:53<15:13, 17.24s/it]Evaluating:  58%|█████▊    | 73/125 [24:11<15:14, 17.59s/it]Evaluating:  59%|█████▉    | 74/125 [25:21<28:15, 33.24s/it]Evaluating:  60%|██████    | 75/125 [25:33<22:29, 26.98s/it]Evaluating:  61%|██████    | 76/125 [25:46<18:33, 22.71s/it]Evaluating:  62%|██████▏   | 77/125 [25:54<14:38, 18.31s/it]Evaluating:  62%|██████▏   | 78/125 [26:14<14:45, 18.83s/it]Evaluating:  63%|██████▎   | 79/125 [26:58<20:11, 26.34s/it]Evaluating:  64%|██████▍   | 80/125 [27:13<17:08, 22.86s/it]Evaluating:  65%|██████▍   | 81/125 [27:38<17:20, 23.65s/it]Evaluating:  66%|██████▌   | 82/125 [27:45<13:19, 18.58s/it]Evaluating:  66%|██████▋   | 83/125 [28:03<12:48, 18.30s/it]Evaluating:  67%|██████▋   | 84/125 [28:57<19:47, 28.96s/it]Evaluating:  68%|██████▊   | 85/125 [29:07<15:33, 23.34s/it]Evaluating:  69%|██████▉   | 86/125 [29:18<12:45, 19.63s/it]Evaluating:  70%|██████▉   | 87/125 [29:25<10:05, 15.93s/it]Evaluating:  70%|███████   | 88/125 [29:41<09:47, 15.87s/it]Evaluating:  71%|███████   | 89/125 [30:16<12:58, 21.63s/it]Evaluating:  72%|███████▏  | 90/125 [30:30<11:21, 19.48s/it]Evaluating:  73%|███████▎  | 91/125 [30:53<11:38, 20.56s/it]Evaluating:  74%|███████▎  | 92/125 [31:00<09:00, 16.39s/it]Evaluating:  74%|███████▍  | 93/125 [31:23<09:50, 18.46s/it]Evaluating:  75%|███████▌  | 94/125 [32:27<16:35, 32.11s/it]Evaluating:  76%|███████▌  | 95/125 [32:42<13:23, 26.77s/it]Evaluating:  77%|███████▋  | 96/125 [32:54<10:51, 22.46s/it]Evaluating:  78%|███████▊  | 97/125 [33:00<08:09, 17.48s/it]Evaluating:  78%|███████▊  | 98/125 [33:15<07:33, 16.79s/it]Evaluating:  79%|███████▉  | 99/125 [33:58<10:37, 24.51s/it]Evaluating:  80%|████████  | 100/125 [34:08<08:25, 20.21s/it]Evaluating:  81%|████████  | 101/125 [34:19<06:59, 17.48s/it]Evaluating:  82%|████████▏ | 102/125 [34:25<05:21, 13.97s/it]Evaluating:  82%|████████▏ | 103/125 [34:35<04:47, 13.05s/it]Evaluating:  83%|████████▎ | 104/125 [35:07<06:30, 18.59s/it]Evaluating:  84%|████████▍ | 105/125 [35:19<05:32, 16.64s/it]Evaluating:  85%|████████▍ | 106/125 [35:35<05:13, 16.49s/it]Evaluating:  86%|████████▌ | 107/125 [35:41<03:59, 13.31s/it]Evaluating:  86%|████████▋ | 108/125 [35:55<03:49, 13.47s/it]Evaluating:  87%|████████▋ | 109/125 [36:32<05:28, 20.54s/it]Evaluating:  88%|████████▊ | 110/125 [36:43<04:22, 17.53s/it]Evaluating:  89%|████████▉ | 111/125 [36:56<03:47, 16.24s/it]Evaluating:  90%|████████▉ | 112/125 [37:03<02:55, 13.47s/it]Evaluating:  90%|█████████ | 113/125 [37:16<02:39, 13.32s/it]Evaluating:  91%|█████████ | 114/125 [37:49<03:33, 19.43s/it]Evaluating:  92%|█████████▏| 115/125 [38:06<03:04, 18.47s/it]Evaluating:  93%|█████████▎| 116/125 [38:28<02:57, 19.76s/it]Evaluating:  94%|█████████▎| 117/125 [38:35<02:07, 15.88s/it]Evaluating:  94%|█████████▍| 118/125 [38:57<02:02, 17.52s/it]Evaluating:  95%|█████████▌| 119/125 [39:48<02:45, 27.60s/it]Evaluating:  96%|█████████▌| 120/125 [40:01<01:57, 23.44s/it]Evaluating:  97%|█████████▋| 121/125 [40:19<01:27, 21.78s/it]Evaluating:  98%|█████████▊| 122/125 [40:26<00:51, 17.18s/it]Evaluating:  98%|█████████▊| 123/125 [40:49<00:37, 18.87s/it]Evaluating:  99%|█████████▉| 124/125 [41:52<00:32, 32.37s/it]Evaluating: 100%|██████████| 125/125 [42:01<00:00, 25.35s/it]Evaluating: 100%|██████████| 125/125 [42:01<00:00, 20.18s/it]
+Scoring agent with RAGAS...
+/Users/ahmaduzzam/Desktop/ai-projects/eu-compliance-agent/scripts/evaluate.py:111: DeprecationWarning: Importing FactualCorrectness from 'ragas.metrics' is deprecated and will be removed in v1.0. Please use 'ragas.metrics.collections' instead. Example: from ragas.metrics.collections import FactualCorrectness
+  from ragas.metrics import (FactualCorrectness, Faithfulness, LLMContextPrecisionWithReference,
+/Users/ahmaduzzam/Desktop/ai-projects/eu-compliance-agent/scripts/evaluate.py:111: DeprecationWarning: Importing Faithfulness from 'ragas.metrics' is deprecated and will be removed in v1.0. Please use 'ragas.metrics.collections' instead. Example: from ragas.metrics.collections import Faithfulness
+  from ragas.metrics import (FactualCorrectness, Faithfulness, LLMContextPrecisionWithReference,
+/Users/ahmaduzzam/Desktop/ai-projects/eu-compliance-agent/scripts/evaluate.py:111: DeprecationWarning: Importing LLMContextPrecisionWithReference from 'ragas.metrics' is deprecated and will be removed in v1.0. Please use 'ragas.metrics.collections' instead. Example: from ragas.metrics.collections import LLMContextPrecisionWithReference
+  from ragas.metrics import (FactualCorrectness, Faithfulness, LLMContextPrecisionWithReference,
+/Users/ahmaduzzam/Desktop/ai-projects/eu-compliance-agent/scripts/evaluate.py:111: DeprecationWarning: Importing LLMContextRecall from 'ragas.metrics' is deprecated and will be removed in v1.0. Please use 'ragas.metrics.collections' instead. Example: from ragas.metrics.collections import LLMContextRecall
+  from ragas.metrics import (FactualCorrectness, Faithfulness, LLMContextPrecisionWithReference,
+/Users/ahmaduzzam/Desktop/ai-projects/eu-compliance-agent/scripts/evaluate.py:111: DeprecationWarning: Importing ResponseRelevancy from 'ragas.metrics' is deprecated and will be removed in v1.0. Please use 'ragas.metrics.collections' instead. Example: from ragas.metrics.collections import ResponseRelevancy
+  from ragas.metrics import (FactualCorrectness, Faithfulness, LLMContextPrecisionWithReference,
+/Users/ahmaduzzam/Desktop/ai-projects/eu-compliance-agent/scripts/evaluate.py:130: DeprecationWarning: LangchainLLMWrapper is deprecated and will be removed in a future version. Use llm_factory instead: from openai import OpenAI; from ragas.llms import llm_factory; llm = llm_factory('gpt-4o-mini', client=OpenAI(api_key='...'))
+  llm=LangchainLLMWrapper(get_llm()),
+/Users/ahmaduzzam/Desktop/ai-projects/eu-compliance-agent/scripts/evaluate.py:131: DeprecationWarning: LangchainEmbeddingsWrapper is deprecated and will be removed in a future version. Use the modern embedding providers instead: embedding_factory('openai', model='text-embedding-3-small', client=openai_client) or from ragas.embeddings import OpenAIEmbeddings, GoogleEmbeddings, HuggingFaceEmbeddings
+  embeddings=LangchainEmbeddingsWrapper(judge_embeddings),
+Evaluating:   0%|          | 0/125 [00:00<?, ?it/s]Evaluating:   1%|          | 1/125 [00:11<24:16, 11.75s/it]Evaluating:   2%|▏         | 2/125 [00:35<39:05, 19.07s/it]Evaluating:   2%|▏         | 3/125 [00:59<43:00, 21.15s/it]Evaluating:   3%|▎         | 4/125 [01:24<46:02, 22.83s/it]Evaluating:   4%|▍         | 5/125 [02:13<1:04:13, 32.11s/it]Evaluating:   5%|▍         | 6/125 [02:25<50:05, 25.26s/it]  Evaluating:   6%|▌         | 7/125 [02:37<40:56, 20.82s/it]Evaluating:   6%|▋         | 8/125 [02:56<39:28, 20.24s/it]Evaluating:   7%|▋         | 9/125 [03:00<29:38, 15.33s/it]Evaluating:   8%|▊         | 10/125 [03:34<40:19, 21.04s/it]Evaluating:   9%|▉         | 11/125 [03:40<31:12, 16.42s/it]Evaluating:  10%|▉         | 12/125 [03:45<24:36, 13.07s/it]Evaluating:  10%|█         | 13/125 [03:50<19:34, 10.49s/it]Evaluating:  11%|█         | 14/125 [03:59<18:49, 10.18s/it]Evaluating:  12%|█▏        | 15/125 [04:34<32:18, 17.62s/it]Evaluating:  13%|█▎        | 16/125 [04:44<27:52, 15.35s/it]Evaluating:  14%|█▎        | 17/125 [04:50<22:24, 12.45s/it]Evaluating:  14%|█▍        | 18/125 [04:54<17:41,  9.92s/it]Evaluating:  15%|█▌        | 19/125 [05:01<16:07,  9.12s/it]Evaluating:  16%|█▌        | 20/125 [05:42<32:42, 18.69s/it]Evaluating:  17%|█▋        | 21/125 [05:53<28:03, 16.19s/it]Evaluating:  18%|█▊        | 22/125 [05:58<22:10, 12.92s/it]Evaluating:  18%|█▊        | 23/125 [06:16<24:24, 14.35s/it]Evaluating:  19%|█▉        | 24/125 [06:50<34:17, 20.37s/it]Evaluating:  20%|██        | 25/125 [07:02<29:28, 17.68s/it]Evaluating:  21%|██        | 26/125 [07:15<27:10, 16.47s/it]Evaluating:  22%|██▏       | 27/125 [07:21<21:42, 13.29s/it]Evaluating:  22%|██▏       | 28/125 [07:41<24:51, 15.38s/it]Evaluating:  23%|██▎       | 29/125 [08:27<39:14, 24.52s/it]Evaluating:  24%|██▍       | 30/125 [08:31<28:54, 18.26s/it]Evaluating:  25%|██▍       | 31/125 [08:41<24:44, 15.79s/it]Evaluating:  26%|██▌       | 32/125 [08:52<22:25, 14.47s/it]Evaluating:  26%|██▋       | 33/125 [09:06<21:54, 14.28s/it]Evaluating:  27%|██▋       | 34/125 [09:26<24:18, 16.02s/it]Evaluating:  28%|██▊       | 35/125 [09:59<31:43, 21.15s/it]Evaluating:  29%|██▉       | 36/125 [10:09<26:27, 17.84s/it]Evaluating:  30%|██▉       | 37/125 [10:25<25:14, 17.21s/it]Evaluating:  30%|███       | 38/125 [10:38<23:12, 16.00s/it]Evaluating:  31%|███       | 39/125 [10:59<24:47, 17.30s/it]Evaluating:  32%|███▏      | 40/125 [11:23<27:24, 19.35s/it]Evaluating:  33%|███▎      | 41/125 [11:32<22:57, 16.40s/it]Evaluating:  34%|███▎      | 42/125 [11:43<20:27, 14.79s/it]Evaluating:  34%|███▍      | 43/125 [11:58<20:20, 14.89s/it]Evaluating:  35%|███▌      | 44/125 [12:38<30:09, 22.34s/it]Evaluating:  36%|███▌      | 45/125 [12:43<22:58, 17.23s/it]Evaluating:  37%|███▋      | 46/125 [12:52<19:12, 14.59s/it]Evaluating:  38%|███▊      | 47/125 [12:58<15:48, 12.16s/it]Evaluating:  38%|███▊      | 48/125 [13:03<12:43,  9.91s/it]Evaluating:  39%|███▉      | 49/125 [13:28<18:09, 14.33s/it]Evaluating:  40%|████      | 50/125 [14:11<28:50, 23.07s/it]Evaluating:  41%|████      | 51/125 [14:33<27:49, 22.56s/it]Evaluating:  42%|████▏     | 52/125 [14:39<21:33, 17.72s/it]Evaluating:  42%|████▏     | 53/125 [14:51<19:06, 15.93s/it]Evaluating:  43%|████▎     | 54/125 [14:55<14:47, 12.50s/it]Evaluating:  44%|████▍     | 55/125 [16:03<33:50, 29.01s/it]Evaluating:  45%|████▍     | 56/125 [16:20<29:22, 25.54s/it]Evaluating:  46%|████▌     | 57/125 [16:26<22:16, 19.66s/it]Evaluating:  46%|████▋     | 58/125 [16:50<23:13, 20.80s/it]Evaluating:  47%|████▋     | 59/125 [17:47<34:49, 31.66s/it]Evaluating:  48%|████▊     | 60/125 [17:52<25:47, 23.82s/it]Evaluating:  49%|████▉     | 61/125 [18:01<20:29, 19.22s/it]Evaluating:  50%|████▉     | 62/125 [18:07<16:12, 15.44s/it]Evaluating:  50%|█████     | 63/125 [18:12<12:32, 12.14s/it]Evaluating:  51%|█████     | 64/125 [18:22<11:55, 11.72s/it]Evaluating:  52%|█████▏    | 65/125 [18:52<17:04, 17.07s/it]Evaluating:  53%|█████▎    | 66/125 [19:06<15:50, 16.12s/it]Evaluating:  54%|█████▎    | 67/125 [19:11<12:18, 12.74s/it]Evaluating:  54%|█████▍    | 68/125 [19:14<09:30, 10.01s/it]Evaluating:  55%|█████▌    | 69/125 [19:23<08:59,  9.63s/it]Evaluating:  56%|█████▌    | 70/125 [20:08<18:24, 20.09s/it]Evaluating:  57%|█████▋    | 71/125 [20:21<16:15, 18.06s/it]Evaluating:  58%|█████▊    | 72/125 [20:28<12:56, 14.64s/it]Evaluating:  58%|█████▊    | 73/125 [20:45<13:21, 15.41s/it]Evaluating:  59%|█████▉    | 74/125 [21:07<14:55, 17.57s/it]Evaluating:  60%|██████    | 75/125 [21:42<18:51, 22.62s/it]Evaluating:  61%|██████    | 76/125 [21:50<14:59, 18.36s/it]Evaluating:  62%|██████▏   | 77/125 [21:56<11:37, 14.54s/it]Evaluating:  62%|██████▏   | 78/125 [22:01<09:16, 11.85s/it]Evaluating:  63%|██████▎   | 79/125 [22:12<08:44, 11.39s/it]Evaluating:  64%|██████▍   | 80/125 [22:37<11:46, 15.70s/it]Evaluating:  65%|██████▍   | 81/125 [22:48<10:29, 14.30s/it]Evaluating:  66%|██████▌   | 82/125 [22:56<08:48, 12.29s/it]Evaluating:  66%|██████▋   | 83/125 [23:12<09:21, 13.36s/it]Evaluating:  67%|██████▋   | 84/125 [23:16<07:13, 10.59s/it]Evaluating:  68%|██████▊   | 85/125 [23:55<12:38, 18.96s/it]Evaluating:  69%|██████▉   | 86/125 [24:05<10:38, 16.37s/it]Evaluating:  70%|██████▉   | 87/125 [24:12<08:31, 13.46s/it]Evaluating:  70%|███████   | 88/125 [24:27<08:44, 14.17s/it]Evaluating:  71%|███████   | 89/125 [24:44<08:55, 14.86s/it]Evaluating:  72%|███████▏  | 90/125 [25:09<10:32, 18.08s/it]Evaluating:  73%|███████▎  | 91/125 [25:25<09:44, 17.18s/it]Evaluating:  74%|███████▎  | 92/125 [25:48<10:33, 19.21s/it]Evaluating:  74%|███████▍  | 93/125 [26:09<10:30, 19.69s/it]Evaluating:  75%|███████▌  | 94/125 [27:12<16:51, 32.62s/it]Evaluating:  76%|███████▌  | 95/125 [27:18<12:14, 24.49s/it]Evaluating:  77%|███████▋  | 96/125 [27:31<10:14, 21.19s/it]Evaluating:  78%|███████▊  | 97/125 [27:51<09:40, 20.72s/it]Evaluating:  78%|███████▊  | 98/125 [28:07<08:46, 19.51s/it]Evaluating:  79%|███████▉  | 99/125 [28:26<08:18, 19.18s/it]Evaluating:  80%|████████  | 100/125 [28:58<09:36, 23.06s/it]Evaluating:  81%|████████  | 101/125 [29:06<07:29, 18.71s/it]Evaluating:  82%|████████▏ | 102/125 [29:16<06:10, 16.10s/it]Evaluating:  82%|████████▏ | 103/125 [29:27<05:15, 14.33s/it]Evaluating:  83%|████████▎ | 104/125 [29:40<04:53, 13.97s/it]Evaluating:  84%|████████▍ | 105/125 [29:56<04:52, 14.61s/it]Evaluating:  85%|████████▍ | 106/125 [30:03<03:53, 12.31s/it]Evaluating:  86%|████████▌ | 107/125 [30:10<03:11, 10.62s/it]Evaluating:  86%|████████▋ | 108/125 [30:23<03:16, 11.53s/it]Evaluating:  87%|████████▋ | 109/125 [30:46<03:56, 14.77s/it]Evaluating:  88%|████████▊ | 110/125 [30:56<03:23, 13.54s/it]Evaluating:  89%|████████▉ | 111/125 [31:06<02:52, 12.31s/it]Evaluating:  90%|████████▉ | 112/125 [31:13<02:22, 10.93s/it]Evaluating:  90%|█████████ | 113/125 [31:18<01:47,  8.93s/it]Evaluating:  91%|█████████ | 114/125 [31:26<01:36,  8.78s/it]Evaluating:  92%|█████████▏| 115/125 [31:50<02:12, 13.20s/it]Evaluating:  93%|█████████▎| 116/125 [31:58<01:46, 11.81s/it]Evaluating:  94%|█████████▎| 117/125 [32:06<01:23, 10.49s/it]Evaluating:  94%|█████████▍| 118/125 [32:11<01:01,  8.84s/it]Evaluating:  95%|█████████▌| 119/125 [32:23<01:00, 10.07s/it]Evaluating:  96%|█████████▌| 120/125 [33:01<01:31, 18.38s/it]Evaluating:  97%|█████████▋| 121/125 [33:24<01:19, 19.81s/it]Evaluating:  98%|█████████▊| 122/125 [33:31<00:47, 15.86s/it]Evaluating:  98%|█████████▊| 123/125 [33:53<00:35, 17.66s/it]Evaluating:  99%|█████████▉| 124/125 [33:58<00:13, 13.75s/it]Evaluating: 100%|██████████| 125/125 [34:55<00:00, 26.78s/it]Evaluating: 100%|██████████| 125/125 [34:55<00:00, 16.76s/it]
+{
+  "run_started_utc": "2026-11-07T21:51:00Z",
+  "run_finished_utc": "2026-11-07T23:15:56Z",
+  "total_seconds": 5096.0,
+  "stage_seconds": {
+    "answers_baseline": 133.9,
+    "answers_agent": 344.3,
+    "ragas_baseline": 2522.6,
+    "ragas_agent": 2095.3
+  },
+  "question_ids": [
+    "Q01",
+    "Q02",
+    "Q03",
+    "Q04",
+    "Q05",
+    "Q06",
+    "Q07",
+    "Q08",
+    "Q09",
+    "Q10",
+    "Q11",
+    "Q12",
+    "Q13",
+    "Q14",
+    "Q15",
+    "Q16",
+    "Q17",
+    "Q18",
+    "Q19",
+    "Q20",
+    "Q21",
+    "Q22",
+    "Q23",
+    "Q24",
+    "Q25",
+    "Q26",
+    "Q27",
+    "Q28",
+    "Q29",
+    "Q30"
+  ],
+  "settings": {
+    "chat_model": "ollama:qwen2.5:7b",
+    "judge_model": "ollama:qwen2.5:7b",
+    "embedding_model": "nomic-embed-text",
+    "reranker": "BAAI/bge-reranker-base",
+    "temperature": 0.0,
+    "top_k": 5,
+    "chunk_size": 1000,
+    "chunk_overlap": 150,
+    "ragas_version": "0.4.3"
+  },
+  "systems": {
+    "baseline": {
+      "questions": 30,
+      "errors": 0,
+      "refusals": {
+        "unanswerable_total": 5,
+        "unanswerable_correctly_refused": 5,
+        "refusal_accuracy": 1.0,
+        "answerable_total": 25,
+        "answerable_wrongly_refused": 1,
+        "false_refusal_rate": 0.04
+      },
+      "timing": {
+        "mean_seconds": 4.42,
+        "median_seconds": 4.24,
+        "max_seconds": 11.36,
+        "total_seconds": 132.49
+      },
+      "ragas": {
+        "faithfulness": {
+          "mean": 0.784,
+          "scored": 25,
+          "failed": 0
+        },
+        "answer_relevancy": {
+          "mean": 0.8134,
+          "scored": 25,
+          "failed": 0
+        },
+        "context_precision": {
+          "mean": 0.7071,
+          "scored": 25,
+          "failed": 0
+        },
+        "context_recall": {
+          "mean": 0.7533,
+          "scored": 25,
+          "failed": 0
+        },
+        "factual_correctness": {
+          "mean": 0.4836,
+          "scored": 25,
+          "failed": 0
+        }
+      }
+    },
+    "agent": {
+      "questions": 30,
+      "errors": 0,
+      "refusals": {
+        "unanswerable_total": 5,
+        "unanswerable_correctly_refused": 5,
+        "refusal_accuracy": 1.0,
+        "answerable_total": 25,
+        "answerable_wrongly_refused": 2,
+        "false_refusal_rate": 0.08
+      },
+      "timing": {
+        "mean_seconds": 11.39,
+        "median_seconds": 11.28,
+        "max_seconds": 16.1,
+        "total_seconds": 341.59
+      },
+      "ragas": {
+        "faithfulness": {
+          "mean": 0.7867,
+          "scored": 25,
+          "failed": 0
+        },
+        "answer_relevancy": {
+          "mean": 0.8388,
+          "scored": 25,
+          "failed": 0
+        },
+        "context_precision": {
+          "mean": 0.8547,
+          "scored": 25,
+          "failed": 0
+        },
+        "context_recall": {
+          "mean": 0.7833,
+          "scored": 25,
+          "failed": 0
+        },
+        "factual_correctness": {
+          "mean": 0.4756,
+          "scored": 25,
+          "failed": 0
+        }
+      }
+    }
+  }
+}

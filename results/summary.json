@@ -1,0 +1,146 @@
+{
+  "run_started_utc": "2026-11-07T21:51:00Z",
+  "run_finished_utc": "2026-11-07T23:15:56Z",
+  "total_seconds": 5096.0,
+  "stage_seconds": {
+    "answers_baseline": 133.9,
+    "answers_agent": 344.3,
+    "ragas_baseline": 2522.6,
+    "ragas_agent": 2095.3
+  },
+  "question_ids": [
+    "Q01",
+    "Q02",
+    "Q03",
+    "Q04",
+    "Q05",
+    "Q06",
+    "Q07",
+    "Q08",
+    "Q09",
+    "Q10",
+    "Q11",
+    "Q12",
+    "Q13",
+    "Q14",
+    "Q15",
+    "Q16",
+    "Q17",
+    "Q18",
+    "Q19",
+    "Q20",
+    "Q21",
+    "Q22",
+    "Q23",
+    "Q24",
+    "Q25",
+    "Q26",
+    "Q27",
+    "Q28",
+    "Q29",
+    "Q30"
+  ],
+  "settings": {
+    "chat_model": "ollama:qwen2.5:7b",
+    "judge_model": "ollama:qwen2.5:7b",
+    "embedding_model": "nomic-embed-text",
+    "reranker": "BAAI/bge-reranker-base",
+    "temperature": 0.0,
+    "top_k": 5,
+    "chunk_size": 1000,
+    "chunk_overlap": 150,
+    "ragas_version": "0.4.3"
+  },
+  "systems": {
+    "baseline": {
+      "questions": 30,
+      "errors": 0,
+      "refusals": {
+        "unanswerable_total": 5,
+        "unanswerable_correctly_refused": 5,
+        "refusal_accuracy": 1.0,
+        "answerable_total": 25,
+        "answerable_wrongly_refused": 1,
+        "false_refusal_rate": 0.04
+      },
+      "timing": {
+        "mean_seconds": 4.42,
+        "median_seconds": 4.24,
+        "max_seconds": 11.36,
+        "total_seconds": 132.49
+      },
+      "ragas": {
+        "faithfulness": {
+          "mean": 0.784,
+          "scored": 25,
+          "failed": 0
+        },
+        "answer_relevancy": {
+          "mean": 0.8134,
+          "scored": 25,
+          "failed": 0
+        },
+        "context_precision": {
+          "mean": 0.7071,
+          "scored": 25,
+          "failed": 0
+        },
+        "context_recall": {
+          "mean": 0.7533,
+          "scored": 25,
+          "failed": 0
+        },
+        "factual_correctness": {
+          "mean": 0.4836,
+          "scored": 25,
+          "failed": 0
+        }
+      }
+    },
+    "agent": {
+      "questions": 30,
+      "errors": 0,
+      "refusals": {
+        "unanswerable_total": 5,
+        "unanswerable_correctly_refused": 5,
+        "refusal_accuracy": 1.0,
+        "answerable_total": 25,
+        "answerable_wrongly_refused": 2,
+        "false_refusal_rate": 0.08
+      },
+      "timing": {
+        "mean_seconds": 11.39,
+        "median_seconds": 11.28,
+        "max_seconds": 16.1,
+        "total_seconds": 341.59
+      },
+      "ragas": {
+        "faithfulness": {
+          "mean": 0.7867,
+          "scored": 25,
+          "failed": 0
+        },
+        "answer_relevancy": {
+          "mean": 0.8388,
+          "scored": 25,
+          "failed": 0
+        },
+        "context_precision": {
+          "mean": 0.8547,
+          "scored": 25,
+          "failed": 0
+        },
+        "context_recall": {
+          "mean": 0.7833,
+          "scored": 25,
+          "failed": 0
+        },
+        "factual_correctness": {
+          "mean": 0.4756,
+          "scored": 25,
+          "failed": 0
+        }
+      }
+    }
+  }
+}
