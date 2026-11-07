@@ -23,6 +23,9 @@ data/index/
 .cache/
 models/
 
+# Local Claude Code launch settings (machine-specific)
+.claude/
+
 # Mac and editor files
 .DS_Store
 .vscode/
