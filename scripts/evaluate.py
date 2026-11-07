@@ -28,7 +28,8 @@ from src import config  # noqa: E402
 
 QUESTIONS_FILE = config.ROOT / "eval" / "test_questions.json"
 SYSTEMS = ["baseline", "agent"]
-METRIC_NAMES = ["faithfulness", "answer_relevancy", "context_precision", "context_recall"]
+METRIC_NAMES = ["faithfulness", "answer_relevancy", "context_precision", "context_recall",
+                "factual_correctness"]
 
 
 def now_utc() -> str:
@@ -107,8 +108,8 @@ def ragas_scores(system: str, recs: list[dict], out_dir: Path) -> dict:
     from ragas.dataset_schema import SingleTurnSample
     from ragas.embeddings import LangchainEmbeddingsWrapper
     from ragas.llms import LangchainLLMWrapper
-    from ragas.metrics import (Faithfulness, LLMContextPrecisionWithReference, LLMContextRecall,
-                               ResponseRelevancy)
+    from ragas.metrics import (FactualCorrectness, Faithfulness, LLMContextPrecisionWithReference,
+                               LLMContextRecall, ResponseRelevancy)
 
     from src.models import get_llm
 
@@ -117,7 +118,10 @@ def ragas_scores(system: str, recs: list[dict], out_dir: Path) -> dict:
         return {}
     samples = [SingleTurnSample(user_input=r["question"], retrieved_contexts=r["contexts"] or [""],
                                 response=r["answer"], reference=r["reference_answer"]) for r in ans]
-    metrics = [Faithfulness(), ResponseRelevancy(), LLMContextPrecisionWithReference(), LLMContextRecall()]
+    # The four agreed RAGAS metrics, plus factual correctness: claim-level F1 between the answer
+    # and the checked reference answer (faithfulness alone cannot tell if an answer is right).
+    metrics = [Faithfulness(), ResponseRelevancy(), LLMContextPrecisionWithReference(), LLMContextRecall(),
+               FactualCorrectness(mode="f1")]
     # Judge embeddings without nomic's search labels: answer relevancy compares question with question.
     judge_embeddings = OllamaEmbeddings(model=config.EMBED_MODEL, base_url=config.OLLAMA_BASE_URL)
     result = evaluate(
@@ -130,7 +134,11 @@ def ragas_scores(system: str, recs: list[dict], out_dir: Path) -> dict:
         show_progress=True,
     )
     df = result.to_pandas()
-    df = df.rename(columns={m.name: label for m, label in zip(metrics, METRIC_NAMES)})
+    # RAGAS may add settings to a column name, e.g. "factual_correctness(mode=f1)".
+    renames = {}
+    for m, label in zip(metrics, METRIC_NAMES):
+        renames.update({col: label for col in df.columns if col == m.name or col.startswith(m.name + "(")})
+    df = df.rename(columns=renames)
     df.insert(0, "id", [r["id"] for r in ans])
     df.insert(1, "refused", [r["refused"] for r in ans])
     df[["id", "refused", *METRIC_NAMES]].to_csv(out_dir / f"ragas_{system}.csv", index=False)
