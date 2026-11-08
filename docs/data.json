@@ -1,0 +1,2034 @@
+{
+ "run": {
+  "run_started_utc": "2026-11-07T21:51:00Z",
+  "run_finished_utc": "2026-11-07T23:15:56Z",
+  "total_seconds": 5096.0,
+  "stage_seconds": {
+   "answers_baseline": 133.9,
+   "answers_agent": 344.3,
+   "ragas_baseline": 2522.6,
+   "ragas_agent": 2095.3
+  }
+ },
+ "settings": {
+  "chat_model": "ollama:qwen2.5:7b",
+  "judge_model": "ollama:qwen2.5:7b",
+  "embedding_model": "nomic-embed-text",
+  "reranker": "BAAI/bge-reranker-base",
+  "temperature": 0.0,
+  "top_k": 5,
+  "chunk_size": 1000,
+  "chunk_overlap": 150,
+  "ragas_version": "0.4.3"
+ },
+ "systems": {
+  "baseline": {
+   "questions": 30,
+   "errors": 0,
+   "refusals": {
+    "unanswerable_total": 5,
+    "unanswerable_correctly_refused": 5,
+    "refusal_accuracy": 1.0,
+    "answerable_total": 25,
+    "answerable_wrongly_refused": 1,
+    "false_refusal_rate": 0.04
+   },
+   "timing": {
+    "mean_seconds": 4.42,
+    "median_seconds": 4.24,
+    "max_seconds": 11.36,
+    "total_seconds": 132.49
+   },
+   "ragas": {
+    "faithfulness": {
+     "mean": 0.784,
+     "scored": 25,
+     "failed": 0
+    },
+    "answer_relevancy": {
+     "mean": 0.8134,
+     "scored": 25,
+     "failed": 0
+    },
+    "context_precision": {
+     "mean": 0.7071,
+     "scored": 25,
+     "failed": 0
+    },
+    "context_recall": {
+     "mean": 0.7533,
+     "scored": 25,
+     "failed": 0
+    },
+    "factual_correctness": {
+     "mean": 0.4836,
+     "scored": 25,
+     "failed": 0
+    }
+   }
+  },
+  "agent": {
+   "questions": 30,
+   "errors": 0,
+   "refusals": {
+    "unanswerable_total": 5,
+    "unanswerable_correctly_refused": 5,
+    "refusal_accuracy": 1.0,
+    "answerable_total": 25,
+    "answerable_wrongly_refused": 2,
+    "false_refusal_rate": 0.08
+   },
+   "timing": {
+    "mean_seconds": 11.39,
+    "median_seconds": 11.28,
+    "max_seconds": 16.1,
+    "total_seconds": 341.59
+   },
+   "ragas": {
+    "faithfulness": {
+     "mean": 0.7867,
+     "scored": 25,
+     "failed": 0
+    },
+    "answer_relevancy": {
+     "mean": 0.8388,
+     "scored": 25,
+     "failed": 0
+    },
+    "context_precision": {
+     "mean": 0.8547,
+     "scored": 25,
+     "failed": 0
+    },
+    "context_recall": {
+     "mean": 0.7833,
+     "scored": 25,
+     "failed": 0
+    },
+    "factual_correctness": {
+     "mean": 0.4756,
+     "scored": 25,
+     "failed": 0
+    }
+   }
+  }
+ },
+ "metric_labels": {
+  "faithfulness": "Faithfulness",
+  "answer_relevancy": "Answer relevancy",
+  "context_precision": "Context precision",
+  "context_recall": "Context recall",
+  "factual_correctness": "Factual correctness (F1)"
+ },
+ "index": {
+  "built_utc": "2026-11-07T21:01:21Z",
+  "embedding_model": "nomic-embed-text",
+  "chunk_size": 1000,
+  "chunk_overlap": 150,
+  "total_chunks": 1497,
+  "chunks_per_doc": {
+   "ai_act": 743,
+   "gdpr": 448,
+   "cbi_outsourcing": 218,
+   "cbi_op_resilience": 88
+  },
+  "chunk_chars_min": 53,
+  "chunk_chars_mean": 861.3,
+  "chunk_chars_max": 1000,
+  "split_seconds": 1.04,
+  "embed_and_store_seconds": 21.02
+ },
+ "sources": [
+  {
+   "doc_id": "ai_act",
+   "title": "Regulation (EU) 2024/1689 (Artificial Intelligence Act)",
+   "publisher": "EUR-Lex, Official Journal of the European Union",
+   "version": "OJ L, 12.7.2024",
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689",
+   "pages": "144"
+  },
+  {
+   "doc_id": "gdpr",
+   "title": "Regulation (EU) 2016/679 (General Data Protection Regulation)",
+   "publisher": "EUR-Lex, Official Journal of the European Union",
+   "version": "OJ L 119, 4.5.2016",
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32016R0679",
+   "pages": "88"
+  },
+  {
+   "doc_id": "cbi_outsourcing",
+   "title": "Cross-Industry Guidance on Outsourcing",
+   "publisher": "Central Bank of Ireland",
+   "version": "December 2021",
+   "url": "https://www.centralbank.ie/docs/default-source/publications/consultation-papers/cp138/cross-industry-guidance-on-outsourcing.pdf",
+   "pages": "73"
+  },
+  {
+   "doc_id": "cbi_op_resilience",
+   "title": "Cross Industry Guidance on Operational Resilience",
+   "publisher": "Central Bank of Ireland",
+   "version": "July 2025",
+   "url": "https://www.centralbank.ie/docs/default-source/publications/consultation-papers/cp140/cross-industry-guidance-on-operational-resilience.pdf?sfvrsn=bd29921d_9",
+   "pages": "35"
+  }
+ ],
+ "questions": [
+  {
+   "id": "Q01",
+   "category": "ai_act",
+   "answerable": true,
+   "question": "When does the AI Act start to apply, and do any parts apply earlier or later?",
+   "reference_answer": "The AI Act entered into force on the twentieth day after publication and applies from 2 August 2026. However, Chapters I and II apply from 2 February 2025; Chapter III Section 4, Chapter V, Chapter VII, Chapter XII and Article 78 apply from 2 August 2025 (except Article 101); and Article 6(1) with its corresponding obligations applies from 2 August 2027.",
+   "baseline": {
+    "answer": "The AI Act starts to apply from 2 August 2025 [1][2][3][5]. Specifically, obligations for providers of general-purpose AI models and codes of practice should be ready by 2 May 2025 [2]. The infrastructure related to governance and the conformity assessment system should be operational from 2 August 2025 [1]. For AI systems already placed on the market or put into service, compliance is required by 31 December 2030, with significant changes in designs subject to compliance by 2 August 2030 [5].",
+    "refused": false,
+    "seconds": 11.36,
+    "citations": [
+     "EU AI Act, Recitals, page 44",
+     "EU AI Act, Recitals; Article 1, page 44",
+     "EU AI Act, Article 110; Article 111, page 121",
+     "EU AI Act, Article 111, page 121"
+    ],
+    "scores": {
+     "faithfulness": 0.8,
+     "answer_relevancy": 0.9416,
+     "context_precision": 0.6792,
+     "context_recall": 0.5,
+     "factual_correctness": 0.0
+    }
+   },
+   "agent": {
+    "answer": "The AI Act starts to apply from 2 August 2025, with certain parts applying earlier. Specifically, the prohibitions and general provisions apply from 2 February 2025, and obligations for providers of general-purpose AI models apply from 2 August 2025. The full application is on 2 August 2026. [1][2][3]",
+    "refused": false,
+    "seconds": 13.47,
+    "citations": [
+     "EU AI Act, Recitals, page 44",
+     "EU AI Act, Recitals; Article 1, page 44",
+     "EU AI Act, Recitals, page 44"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.9572,
+     "context_precision": 0.5,
+     "context_recall": 0.25,
+     "factual_correctness": 0.22
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"When does the AI Act start to apply, and do any parts apply earlier or later?\" | Keywords: entry into force, applicability, provisions | Search: EU AI Act"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "18 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: EU AI Act, Recitals, page 44; EU AI Act, Article 56, page 87; EU AI Act, Article 112, page 122; EU AI Act, Recitals; Article 1, page 44; EU AI Act, Recitals, page 44"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "3 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 3 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q02",
+   "category": "ai_act",
+   "answerable": true,
+   "question": "Is social scoring of people banned under the EU AI Act?",
+   "reference_answer": "Yes. Article 5(1)(c) prohibits AI systems that evaluate or classify natural persons or groups over a period of time based on their social behaviour or known, inferred or predicted personal or personality characteristics, where the social score leads to detrimental or unfavourable treatment in social contexts unrelated to where the data was generated or collected, or to treatment that is unjustified or disproportionate to their social behaviour or its gravity.",
+   "baseline": {
+    "answer": "Yes, social scoring of people is banned under the EU AI Act. The act prohibits AI systems that evaluate or classify natural persons or groups thereof based on their social behaviour or known, inferred or predicted personal or personality characteristics, where the social score leads to detrimental or unfavourable treatment of certain natural persons or groups of persons in unrelated social contexts, or treatment that is unjustified or disproportionate to their social behaviour or its gravity. [1][3]",
+    "refused": false,
+    "seconds": 6.06,
+    "citations": [
+     "EU AI Act, Recitals, page 9",
+     "EU AI Act, Article 5, page 51"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 1.0,
+     "context_precision": 1.0,
+     "context_recall": 0.5,
+     "factual_correctness": 0.83
+    }
+   },
+   "agent": {
+    "answer": "Yes, social scoring of people is banned under the EU AI Act if it leads to detrimental or unfavourable treatment of natural persons or groups, which is disproportionate or unjustified. [1]",
+    "refused": false,
+    "seconds": 8.3,
+    "citations": [
+     "EU AI Act, Recitals, page 9"
+    ],
+    "scores": {
+     "faithfulness": 0.5,
+     "answer_relevancy": 0.9564,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.4
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"prohibited practices social scoring natural persons\" | Keywords: prohibited practices, social scoring, natural persons | Search: EU AI Act"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "15 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: EU AI Act, Recitals, page 9; EU AI Act, Article 5, page 51; EU AI Act, Recitals, page 9; EU AI Act, ANNEX III, page 128; EU AI Act, Recitals, page 12"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "2 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 2 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q03",
+   "category": "ai_act",
+   "answerable": true,
+   "question": "What is the maximum fine for using a prohibited AI practice?",
+   "reference_answer": "Non-compliance with the prohibited AI practices in Article 5 can lead to administrative fines of up to EUR 35 000 000 or, if the offender is an undertaking, up to 7 % of its total worldwide annual turnover for the preceding financial year, whichever is higher.",
+   "baseline": {
+    "answer": "The maximum fine for using a prohibited AI practice, as stated in Article 5 of the EU AI Act, is up to EUR 1,500,000 [2].",
+    "refused": false,
+    "seconds": 3.88,
+    "citations": [
+     "EU AI Act, Article 100, page 117"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.9383,
+     "context_precision": 0.0,
+     "context_recall": 0.0,
+     "factual_correctness": 0.0
+    }
+   },
+   "agent": {
+    "answer": "The maximum fine for using a prohibited AI practice is EUR 1,500,000 [2].",
+    "refused": false,
+    "seconds": 8.15,
+    "citations": [],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 1.0,
+     "context_precision": 0.0,
+     "context_recall": 0.0,
+     "factual_correctness": 0.0
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"maximum fine prohibited AI practice\" | Keywords: maximum fine, prohibited AI practice | Search: EU AI Act"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "18 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: EU AI Act, Article 4; Article 5, page 51; EU AI Act, Article 100, page 117; EU AI Act, Recitals, page 12; EU AI Act, Article 80; Article 81, page 108; EU AI Act, Article 100; Article 101, page 117"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "1 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 1 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q04",
+   "category": "ai_act",
+   "answerable": true,
+   "question": "How does the AI Act define an 'AI system'?",
+   "reference_answer": "An AI system is a machine-based system designed to operate with varying levels of autonomy, which may show adaptiveness after deployment, and which, for explicit or implicit objectives, infers from the input it receives how to generate outputs such as predictions, content, recommendations or decisions that can influence physical or virtual environments.",
+   "baseline": {
+    "answer": "An AI system is defined as a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment. It infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments. [3]",
+    "refused": false,
+    "seconds": 4.33,
+    "citations": [
+     "EU AI Act, Article 2; Article 3, page 46"
+    ],
+    "scores": {
+     "faithfulness": 0.6667,
+     "answer_relevancy": 0.8817,
+     "context_precision": 0.3333,
+     "context_recall": 1.0,
+     "factual_correctness": 1.0
+    }
+   },
+   "agent": {
+    "answer": "An 'AI system' is defined as a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment. It infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments. [1]",
+    "refused": false,
+    "seconds": 10.91,
+    "citations": [
+     "EU AI Act, Article 2; Article 3, page 46"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.8817,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 1.0
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"Definition of AI system in the EU Artificial Intelligence Act\" | Keywords: definition, AI system, EU Artificial Intelligence Act | Search: EU AI Act"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "15 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: EU AI Act, Article 2; Article 3, page 46; EU AI Act, Article 110; Article 111, page 121; EU AI Act, Article 49, page 136; EU AI Act, Article 102; Article 103, page 118; EU AI Act, Article 108, page 120"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "1 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 1 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q05",
+   "category": "ai_act",
+   "answerable": true,
+   "question": "Can my company use AI to work out how employees are feeling at work?",
+   "reference_answer": "Generally no. Article 5(1)(f) prohibits placing on the market, putting into service or using AI systems to infer the emotions of a natural person in the workplace and in education institutions, except where the AI system is intended to be put in place or on the market for medical or safety reasons.",
+   "baseline": {
+    "answer": "Yes, but your company must ensure that any AI system used for this purpose complies with the EU AI Act. Specifically, such a system would fall under the category of \"emotion recognition systems\" [2][4], and its use should not infringe on the rights and freedoms of employees, particularly in the workplace [3]. Additionally, the system must be designed to minimize negative impacts and promote ethical use [5].",
+    "refused": false,
+    "seconds": 5.07,
+    "citations": [
+     "EU AI Act, Recitals, page 5",
+     "EU AI Act, Recitals, page 4",
+     "EU AI Act, Article 5, page 51",
+     "EU AI Act, Article 95, page 113"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.0,
+     "context_precision": 1.0,
+     "context_recall": 0.5,
+     "factual_correctness": 0.67
+    }
+   },
+   "agent": {
+    "answer": "I don't know based on the provided documents.",
+    "refused": true,
+    "seconds": 13.67,
+    "citations": [],
+    "scores": {
+     "faithfulness": 0.0,
+     "answer_relevancy": 0.0,
+     "context_precision": 0.7,
+     "context_recall": 0.5,
+     "factual_correctness": 0.0
+    },
+    "searches": 2,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"Can a data controller process personal data to determine employees' emotional state using AI systems?\" | Keywords: personal data, emotional state, AI systems | Search: EU AI Act, GDPR"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "17 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: EU AI Act, Recitals, page 5; EU AI Act, Recitals, page 18; EU AI Act, Recitals, page 3; EU AI Act, Recitals, page 12; GDPR, Article 17, page 44"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "0 of 5 passages relevant"
+     },
+     {
+      "step": "Retry: new wording, all documents",
+      "detail": "Query: \"Can a data controller process personal data to assess employees' emotional state using AI systems?\" | Keywords: data controller, process, personal data, assess, employees' emotional state, AI systems | Search: EU AI Act, GDPR, CBI Outsourcing Guidance, CBI Operational Resilience Guidance"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "19 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: EU AI Act, Recitals, page 5; EU AI Act, Recitals, page 3; EU AI Act, Recitals, page 18; GDPR, Article 29; Article 30, page 50; EU AI Act, Recitals, page 12"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "0 of 5 passages relevant"
+     },
+     {
+      "step": "Refuse",
+      "detail": "No relevant passage after 2 searches"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q06",
+   "category": "ai_act",
+   "answerable": true,
+   "question": "If we publish a deepfake video made with AI, do we have to say so?",
+   "reference_answer": "Yes. Under Article 50(4), deployers of an AI system that generates or manipulates image, audio or video content constituting a deep fake must disclose that the content has been artificially generated or manipulated. This does not apply where the use is authorised by law to detect, prevent, investigate or prosecute criminal offences. For evidently artistic, creative, satirical, fictional or similar work, the duty is limited to disclosing the existence of such content in an appropriate way that does not hamper the display or enjoyment of the work.",
+   "baseline": {
+    "answer": "Yes, if you publish a deepfake video made with AI, you have to disclose that the content has been artificially generated or manipulated. This is required by the EU AI Act, specifically Article 50 [3][4]. However, this obligation may be limited if the content is part of an evidently creative, artistic, or satirical work [1][5].",
+    "refused": false,
+    "seconds": 5.08,
+    "citations": [
+     "EU AI Act, Article 50, page 82",
+     "EU AI Act, Article 50, page 82",
+     "EU AI Act, Recitals, page 34",
+     "EU AI Act, Recitals, page 34"
+    ],
+    "scores": {
+     "faithfulness": 0.6667,
+     "answer_relevancy": 0.8894,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.67
+    }
+   },
+   "agent": {
+    "answer": "Yes, if you publish a deepfake video made with AI, you have to disclose that the content has been artificially generated or manipulated. This is required by Article 50 of the EU AI Act [2][3].",
+    "refused": false,
+    "seconds": 9.7,
+    "citations": [
+     "EU AI Act, Article 50, page 82",
+     "EU AI Act, Article 50, page 82"
+    ],
+    "scores": {
+     "faithfulness": 0.5,
+     "answer_relevancy": 0.895,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.33
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"publishing deepfake video AI transparency duties\" | Keywords: publishing, deepfake, video, AI, transparency, duties | Search: EU AI Act"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "16 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: EU AI Act, Recitals, page 28; EU AI Act, Recitals, page 34; EU AI Act, Article 50, page 82; EU AI Act, Article 50, page 82; EU AI Act, Article 50, page 82"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "4 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 4 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q07",
+   "category": "ai_act",
+   "answerable": true,
+   "question": "What does the AI Act require companies to do about AI literacy for their staff?",
+   "reference_answer": "Under Article 4, providers and deployers of AI systems must take measures to ensure, to their best extent, a sufficient level of AI literacy of their staff and other persons dealing with the operation and use of AI systems on their behalf, taking into account their technical knowledge, experience, education and training, the context the AI systems are used in, and the persons on whom the systems are used.",
+   "baseline": {
+    "answer": "The AI Act requires companies to ensure a sufficient level of AI literacy among their staff and other persons dealing with the operation and use of AI systems [2].",
+    "refused": false,
+    "seconds": 3.34,
+    "citations": [
+     "EU AI Act, Article 4; Article 5, page 51"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.9733,
+     "context_precision": 0.5,
+     "context_recall": 1.0,
+     "factual_correctness": 0.29
+    }
+   },
+   "agent": {
+    "answer": "The AI Act requires companies to ensure a sufficient level of AI literacy for their staff and others dealing with AI systems. This should be tailored to the staff's technical knowledge, experience, education, and the context in which the AI systems are used [1].",
+    "refused": false,
+    "seconds": 9.2,
+    "citations": [
+     "EU AI Act, Article 4; Article 5, page 51"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.9209,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.67
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"AI Act staff AI literacy\" | Keywords: AI Act, AI literacy, staff obligations | Search: EU AI Act"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "14 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: EU AI Act, Article 4; Article 5, page 51; EU AI Act, Recitals, page 6; EU AI Act, Article 3, page 49; EU AI Act, Recitals, page 25; EU AI Act, Article 95, page 113"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "3 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 3 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q08",
+   "category": "ai_act",
+   "answerable": true,
+   "question": "What is the purpose of human oversight for high-risk AI systems?",
+   "reference_answer": "Under Article 14(2), human oversight aims to prevent or minimise the risks to health, safety or fundamental rights that may emerge when a high-risk AI system is used in accordance with its intended purpose or under conditions of reasonably foreseeable misuse, in particular where such risks persist despite the application of the other requirements in that Section.",
+   "baseline": {
+    "answer": "The purpose of human oversight for high-risk AI systems is to prevent or minimize risks to health, safety, or fundamental rights that may arise when the systems are used as intended or under reasonably foreseeable conditions of misuse [2][4]. This oversight aims to enable natural persons assigned to oversee the systems to understand their capacities and limitations, monitor their operation, and make informed decisions when needed [2][3].",
+    "refused": false,
+    "seconds": 5.31,
+    "citations": [
+     "EU AI Act, Article 14, page 60",
+     "EU AI Act, Article 14, page 60",
+     "EU AI Act, Recitals, page 21"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 1.0,
+     "context_precision": 0.8333,
+     "context_recall": 1.0,
+     "factual_correctness": 0.29
+    }
+   },
+   "agent": {
+    "answer": "The purpose of human oversight for high-risk AI systems is to prevent or minimize risks to health, safety, or fundamental rights that may arise during use. It ensures the systems are used as intended and their impacts are managed throughout their lifecycle. [1][2]",
+    "refused": false,
+    "seconds": 10.01,
+    "citations": [
+     "EU AI Act, Article 13; Article 14, page 60",
+     "EU AI Act, Recitals, page 21"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 1.0,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.29
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"Purpose of human oversight for high-risk AI systems\" | Keywords: human oversight, high-risk AI systems, purpose | Search: EU AI Act"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "16 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: EU AI Act, Article 13; Article 14, page 60; EU AI Act, Article 26, page 68; EU AI Act, Article 14, page 60; EU AI Act, Recitals, page 21; EU AI Act, Article 14, page 60"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "3 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 3 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q09",
+   "category": "gdpr",
+   "answerable": true,
+   "question": "How quickly must a company report a personal data breach to the regulator?",
+   "reference_answer": "Under Article 33(1), the controller must notify the competent supervisory authority without undue delay and, where feasible, not later than 72 hours after becoming aware of the breach, unless the breach is unlikely to result in a risk to the rights and freedoms of natural persons. If notification is made later than 72 hours, it must be accompanied by the reasons for the delay.",
+   "baseline": {
+    "answer": "A company must report a personal data breach to the regulator without undue delay and, where feasible, not later than 72 hours after becoming aware of it [1][3].",
+    "refused": false,
+    "seconds": 3.61,
+    "citations": [
+     "GDPR, Recitals, page 17",
+     "GDPR, Article 32; Article 33, page 52"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.9423,
+     "context_precision": 0.95,
+     "context_recall": 1.0,
+     "factual_correctness": 0.67
+    }
+   },
+   "agent": {
+    "answer": "A company must notify the regulator without undue delay and, where feasible, not later than 72 hours after becoming aware of a personal data breach [1][2][3].",
+    "refused": false,
+    "seconds": 9.78,
+    "citations": [
+     "GDPR, Recitals, page 17",
+     "GDPR, Article 32; Article 33, page 52",
+     "GDPR, Article 33, page 52"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.9195,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.57
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"How quickly must a company report a personal data breach to the regulator?\" | Keywords: data breach, regulator, reporting timeframe | Search: GDPR"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "13 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: GDPR, Recitals, page 17; GDPR, Article 32; Article 33, page 52; GDPR, Article 33, page 52; GDPR, Recitals, page 17; GDPR, Article 33; Article 34, page 52"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "4 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 4 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q10",
+   "category": "gdpr",
+   "answerable": true,
+   "question": "What are the legal grounds that make processing of personal data lawful under GDPR?",
+   "reference_answer": "Article 6(1) says processing is lawful only if at least one applies: (a) the data subject has given consent; (b) it is necessary for a contract with the data subject or steps before entering a contract; (c) it is necessary for compliance with a legal obligation; (d) it is necessary to protect the vital interests of the data subject or another natural person; (e) it is necessary for a task in the public interest or official authority; (f) it is necessary for legitimate interests of the controller or a third party, unless overridden by the data subject's interests or rights. Point (f) does not apply to public authorities performing their tasks.",
+   "baseline": {
+    "answer": "The legal grounds that make processing of personal data lawful under GDPR include the consent of the data subject [1], the necessity to protect an interest essential for the life of the data subject or another natural person [2][46], and the processing being strictly necessary for the purposes of preventing fraud [48]. Additionally, processing can be lawful if it is necessary for the establishment, exercise, or defense of legal claims [3].",
+    "refused": false,
+    "seconds": 5.31,
+    "citations": [
+     "GDPR, Recitals, page 7",
+     "GDPR, Recitals, page 8",
+     "GDPR, Article 18, page 44"
+    ],
+    "scores": {
+     "faithfulness": 0.75,
+     "answer_relevancy": 0.9691,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.5
+    }
+   },
+   "agent": {
+    "answer": "Processing of personal data is lawful under GDPR on the basis of the consent of the data subject concerned or some other legitimate basis, laid down by law, either in this Regulation or in other Union or national laws. [1]",
+    "refused": false,
+    "seconds": 8.37,
+    "citations": [
+     "GDPR, Recitals, page 7"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.9308,
+     "context_precision": 1.0,
+     "context_recall": 0.0,
+     "factual_correctness": 0.67
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"lawful processing of personal data under General Data Protection Regulation\" | Keywords: lawful processing, personal data, General Data Protection Regulation | Search: GDPR"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "15 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: GDPR, Recitals; Article 1; Article 2, page 32; GDPR, Recitals, page 7; GDPR, Recitals, page 8; GDPR, Recitals, page 2; GDPR, Recitals, page 8"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "1 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 1 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q11",
+   "category": "gdpr",
+   "answerable": true,
+   "question": "What is the highest fine a company can get under GDPR?",
+   "reference_answer": "Under Article 83(5) and (6), the highest administrative fines are up to 20 000 000 EUR or, for an undertaking, up to 4 % of total worldwide annual turnover of the preceding financial year, whichever is higher.",
+   "baseline": {
+    "answer": "I don't know based on the provided documents.",
+    "refused": true,
+    "seconds": 2.57,
+    "citations": [],
+    "scores": {
+     "faithfulness": 0.0,
+     "answer_relevancy": 0.0,
+     "context_precision": 0.0,
+     "context_recall": 0.0,
+     "factual_correctness": 0.0
+    }
+   },
+   "agent": {
+    "answer": "The highest fine a company can get under GDPR is 20,000,000 EUR, or 4% of the total worldwide annual turnover of the preceding financial year, whichever is higher. This applies to infringements of certain provisions including the basic principles for processing, data subjects' rights, and transfers of personal data. [1]",
+    "refused": false,
+    "seconds": 10.22,
+    "citations": [
+     "GDPR, Article 83, page 83"
+    ],
+    "scores": {
+     "faithfulness": 0.3333,
+     "answer_relevancy": 0.9574,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.2
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"maximum fine GDPR\" | Keywords: maximum, fine, GDPR | Search: GDPR"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "17 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: GDPR, Recitals, page 17; GDPR, Article 45, page 61; GDPR, Article 43, page 60; GDPR, Article 83, page 83; GDPR, Article 83, page 82"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "2 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 2 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q12",
+   "category": "gdpr",
+   "answerable": true,
+   "question": "When is a data protection impact assessment mandatory?",
+   "reference_answer": "Article 35(3) says a DPIA is required in particular for: (a) a systematic and extensive evaluation of personal aspects based on automated processing, including profiling, on which decisions with legal or similarly significant effects are based; (b) processing on a large scale of special categories of data (Article 9(1)) or of data on criminal convictions and offences (Article 10); or (c) systematic monitoring of a publicly accessible area on a large scale.",
+   "baseline": {
+    "answer": "A data protection impact assessment is mandatory when the processing is likely to result in a high risk to the rights and freedoms of natural persons [4]. This includes scenarios such as systematic and extensive evaluation of personal aspects relating to natural persons based on profiling, or processing special categories of personal data [1][4].",
+    "refused": false,
+    "seconds": 4.59,
+    "citations": [
+     "GDPR, Article 35, page 53",
+     "GDPR, Recitals, page 18"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.9532,
+     "context_precision": 0.75,
+     "context_recall": 1.0,
+     "factual_correctness": 0.57
+    }
+   },
+   "agent": {
+    "answer": "A data protection impact assessment is mandatory when processing operations are likely to result in a high risk to the rights and freedoms of natural persons [1][3][4]. This includes systematic and extensive evaluations of personal aspects based on automated processing, including profiling, and decisions based on such data that produce legal effects or significantly affect the natural person [1][4].",
+    "refused": false,
+    "seconds": 11.27,
+    "citations": [
+     "GDPR, Recitals, page 18",
+     "GDPR, Recitals, page 17",
+     "GDPR, Article 35, page 53"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.8883,
+     "context_precision": 0.75,
+     "context_recall": 1.0,
+     "factual_correctness": 0.6
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"When is a data protection impact assessment mandatory under the General Data Protection Regulation?\" | Keywords: data protection impact assessment, mandatory, General Data Protection Regulation | Search: GDPR"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "13 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: GDPR, Recitals, page 18; GDPR, Article 57, page 68; GDPR, Recitals, page 17; GDPR, Recitals, page 18; GDPR, Article 35, page 53"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "4 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 4 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q13",
+   "category": "gdpr",
+   "answerable": true,
+   "question": "From what age can a child give their own consent to an online service under GDPR?",
+   "reference_answer": "Under Article 8(1), for information society services offered directly to a child, processing based on consent is lawful where the child is at least 16 years old. Below 16, consent must be given or authorised by the holder of parental responsibility. Member States may set a lower age by law, but not below 13 years.",
+   "baseline": {
+    "answer": "From the age of 16, a child can give their own consent to an online service under GDPR [1]. However, if the child is below 16, consent must be given or authorised by the holder of parental responsibility over the child [1].",
+    "refused": false,
+    "seconds": 4.5,
+    "citations": [
+     "GDPR, Article 7; Article 8, page 37"
+    ],
+    "scores": {
+     "faithfulness": 0.5,
+     "answer_relevancy": 0.9198,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.67
+    }
+   },
+   "agent": {
+    "answer": "From the age of 16, a child can give their own consent to an online service under GDPR [1][2].",
+    "refused": false,
+    "seconds": 9.31,
+    "citations": [
+     "GDPR, Article 7; Article 8, page 37"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.9971,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.4
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"From what age can a natural person give their own consent to an online service under the General Data Protection Regulation?\" | Keywords: natural person, age, consent, online service | Search: GDPR"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "18 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: GDPR, Article 7; Article 8, page 37; GDPR, Recitals, page 12; GDPR, Recitals, page 6; GDPR, Recitals, page 7; GDPR, Recitals, page 31"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "1 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 1 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q14",
+   "category": "gdpr",
+   "answerable": true,
+   "question": "Can customers ask to get their personal data in a format they can move to another company?",
+   "reference_answer": "Yes. Under Article 20 (right to data portability), the data subject can receive the personal data they provided to a controller in a structured, commonly used and machine-readable format and transmit it to another controller without hindrance, where the processing is based on consent or a contract and is carried out by automated means.",
+   "baseline": {
+    "answer": "Yes, customers can ask to get their personal data in a format they can move to another company. This is known as the right to data portability, which is mentioned in Article 15 of the GDPR [4].",
+    "refused": false,
+    "seconds": 4.03,
+    "citations": [
+     "GDPR, Recitals, page 19"
+    ],
+    "scores": {
+     "faithfulness": 0.0,
+     "answer_relevancy": 0.9586,
+     "context_precision": 0.2,
+     "context_recall": 1.0,
+     "factual_correctness": 0.5
+    }
+   },
+   "agent": {
+    "answer": "Yes, customers have the right to data portability, which allows them to obtain their personal data in a structured, machine-readable format and to move or transmit those data to another controller. [1]",
+    "refused": false,
+    "seconds": 9.32,
+    "citations": [
+     "GDPR, Article 14, page 42"
+    ],
+    "scores": {
+     "faithfulness": 0.3333,
+     "answer_relevancy": 0.7439,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.75
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"natural persons request portable personal data\" | Keywords: data subject, portable data, right to data portability | Search: GDPR"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "18 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: GDPR, Recitals, page 1; GDPR, Recitals, page 14; GDPR, Article 3; Article 4, page 33; GDPR, Recitals, page 6; GDPR, Article 14, page 42"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "1 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 1 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q15",
+   "category": "gdpr",
+   "answerable": true,
+   "question": "When does an organisation have to appoint a Data Protection Officer?",
+   "reference_answer": "Under Article 37(1), the controller and processor must designate a DPO where: (a) processing is carried out by a public authority or body, except courts acting in their judicial capacity; (b) their core activities require regular and systematic monitoring of data subjects on a large scale; or (c) their core activities consist of large-scale processing of special categories of data (Article 9) or personal data on criminal convictions and offences (Article 10).",
+   "baseline": {
+    "answer": "An organisation has to appoint a Data Protection Officer (DPO) in the following cases:\n1. When the processing is carried out by a public authority or body, except for courts acting in their judicial capacity.\n2. When the core activities of the controller or processor consist of processing operations which, by virtue of their nature, their scope and/or their purposes, require regular and systematic monitoring of data subjects on a large scale.\n3. When the core activities of the controller or processor consist of processing on a large scale of special categories of data pursuant to Article 9 and personal data relating to criminal convictions and offences referred to in Article 10. [1]",
+    "refused": false,
+    "seconds": 7.44,
+    "citations": [
+     "GDPR, Article 37, page 55"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.8777,
+     "context_precision": 1.0,
+     "context_recall": 0.0,
+     "factual_correctness": 0.67
+    }
+   },
+   "agent": {
+    "answer": "An organisation must appoint a Data Protection Officer if:\n- It is a public authority or body, except for courts acting in their judicial capacity [1][3].\n- Its core activities involve regular and systematic large-scale monitoring of data subjects [1].\n- Its core activities include large-scale processing of special categories of data or personal data relating to criminal convictions and offences [1][3].",
+    "refused": false,
+    "seconds": 11.63,
+    "citations": [
+     "GDPR, Article 37, page 55",
+     "GDPR, Article 37, page 55"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.8859,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.86
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"When is a data protection officer to be appointed by an organisation?\" | Keywords: data protection officer, appoint, organisation | Search: GDPR"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "13 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: GDPR, Article 37, page 55; GDPR, Article 37; Article 38, page 55; GDPR, Article 36; Article 37, page 55; GDPR, Article 38; Article 39, page 56; GDPR, Article 37, page 55"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "3 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 3 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q16",
+   "category": "gdpr",
+   "answerable": true,
+   "question": "How long does a company have to respond when someone exercises their data protection rights?",
+   "reference_answer": "Under Article 12(3), the controller must provide information on action taken without undue delay and in any event within one month of receiving the request. This can be extended by two further months where necessary, considering the complexity and number of requests, and the data subject must be told of any extension and the reasons within one month.",
+   "baseline": {
+    "answer": "A company has one month to respond to a request for exercising data protection rights under Articles 15 to 22. This period can be extended by two months if necessary, taking into account the complexity and number of the requests [1].",
+    "refused": false,
+    "seconds": 4.32,
+    "citations": [
+     "GDPR, Article 12, page 40"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.8851,
+     "context_precision": 0.2,
+     "context_recall": 0.5,
+     "factual_correctness": 0.57
+    }
+   },
+   "agent": {
+    "answer": "A company has to respond within one month when someone exercises their data protection rights [1].",
+    "refused": false,
+    "seconds": 8.12,
+    "citations": [
+     "GDPR, Recitals, page 11"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.954,
+     "context_precision": 0.0,
+     "context_recall": 0.0,
+     "factual_correctness": 0.4
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"time limit response data subject exercise rights\" | Keywords: time limit, response, data subject, exercise, rights | Search: GDPR"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "17 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: GDPR, Recitals, page 11; GDPR, Article 12, page 40; GDPR, Article 12, page 40; GDPR, Recitals, page 12; GDPR, Article 21; Article 22, page 46"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "1 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 1 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q17",
+   "category": "cbi_outsourcing",
+   "answerable": true,
+   "question": "Should a regulated firm treat outsourcing to its own group companies differently from outsourcing to an outside provider?",
+   "reference_answer": "No, it should be just as rigorous. The Central Bank says intragroup outsourcing can bring similar benefits to third-party outsourcing but can carry the same risks, and can also present unique risks. It expects firms to apply the same rigour to intragroup outsourcing risk assessments as to third-party service provider assessments.",
+   "baseline": {
+    "answer": "Yes, a regulated firm should consider outsourcing to its own group companies differently from outsourcing to an outside provider. While both can provide similar benefits, they can also carry the same risks. The firm should acknowledge that outsourcing to intragroup entities can offer benefits such as the ability to consolidate expertise, but these arrangements should be managed with the same rigor as external third-party outsourcing. [4]",
+    "refused": false,
+    "seconds": 5.19,
+    "citations": [
+     "CBI Outsourcing Guidance, page 13"
+    ],
+    "scores": {
+     "faithfulness": 0.8,
+     "answer_relevancy": 0.0,
+     "context_precision": 0.8042,
+     "context_recall": 1.0,
+     "factual_correctness": 0.55
+    }
+   },
+   "agent": {
+    "answer": "No, according to the guidance, a regulated firm should treat outsourcing to its own group companies similarly to outsourcing to external third-party providers. Specifically, sub-outsourcing risk arising from intragroup arrangements is treated in the same manner as that with external third party OSPs [1].",
+    "refused": false,
+    "seconds": 11.29,
+    "citations": [
+     "CBI Outsourcing Guidance, page 22"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.843,
+     "context_precision": 1.0,
+     "context_recall": 0.6667,
+     "factual_correctness": 0.4
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"Should a regulated financial firm treat outsourcing to its own group companies differently from outsourcing to an outside provider?\" | Keywords: outsourcing, group companies, outside providers | Search: CBI Outsourcing Guidance, CBI Operational Resilience Guidance"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "20 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: CBI Outsourcing Guidance, page 22; CBI Outsourcing Guidance, page 22; CBI Outsourcing Guidance, page 23; CBI Outsourcing Guidance, page 19; CBI Outsourcing Guidance, page 17"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "2 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 2 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q18",
+   "category": "cbi_outsourcing",
+   "answerable": true,
+   "question": "Can the board of a regulated firm hand over responsibility for outsourced activities to the service provider?",
+   "reference_answer": "No. Boards and senior management are responsible for all activities of the firm, including outsourced activities performed by third parties or group entities, and are ultimately accountable for the effective oversight and management of outsourcing risk. While functions and activities can be outsourced, boards and senior management cannot outsource their responsibilities.",
+   "baseline": {
+    "answer": "No, the board and senior management of regulated firms cannot outsource their responsibilities. They are ultimately accountable for the effective oversight and management of outsourcing risk within their business. [2][4]",
+    "refused": false,
+    "seconds": 3.67,
+    "citations": [
+     "CBI Outsourcing Guidance, page 15",
+     "CBI Outsourcing Guidance, page 15"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.8628,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.67
+    }
+   },
+   "agent": {
+    "answer": "No, the board of a regulated firm cannot hand over responsibility for outsourced activities to the service provider. The board and senior management remain ultimately accountable for the effective oversight and management of outsourcing risk [1][3].",
+    "refused": false,
+    "seconds": 11.72,
+    "citations": [
+     "CBI Outsourcing Guidance, page 15",
+     "CBI Outsourcing Guidance, page 15"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.9861,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.67
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"Can the board of a regulated firm delegate responsibility for outsourced activities to the service provider under the Central Bank of Ireland guidance?\" | Keywords: delegate responsibility, outsourced activities, service provider | Search: CBI Outsourcing Guidance, CBI Operational Resilience Guidance"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "17 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: CBI Outsourcing Guidance, page 14; CBI Outsourcing Guidance, page 15; CBI Outsourcing Guidance, page 14; CBI Outsourcing Guidance, page 9; CBI Outsourcing Guidance, page 15"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "3 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 3 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q19",
+   "category": "cbi_outsourcing",
+   "answerable": true,
+   "question": "In which situations does the Central Bank expect firms to plan how they would exit an outsourcing arrangement?",
+   "reference_answer": "When entering an outsourcing arrangement, firms should plan how they would exit it, for example in case of: (a) failure by the service provider to provide the service to the required standard; (b) unexpected termination of the arrangement by the provider; (c) stressed circumstances at the provider such as hostile takeover, insolvency or liquidation; or (d) any other circumstance the firm envisages may prompt it to exit.",
+   "baseline": {
+    "answer": "The Central Bank expects firms to plan how they would exit an outsourcing arrangement in the following situations:\na) Failure on the part of the OSP to provide the service to the requisite standard;\nb) Unexpected termination of the arrangement dictated by the OSP/CSP;\nc) Stressed circumstances on the part of the OSP such as hostile takeover, insolvency or liquidation; or\nd) Any other circumstance that the regulated firm envisages may prompt it to exit the arrangement. [1]",
+    "refused": false,
+    "seconds": 5.98,
+    "citations": [
+     "CBI Outsourcing Guidance, page 43"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.9628,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.0
+    }
+   },
+   "agent": {
+    "answer": "The Central Bank expects firms to plan how they would exit an outsourcing arrangement in the following situations:\na) Failure on the part of the OSP to provide the service to the requisite standard;\nb) Unexpected termination of the arrangement dictated by the OSP/CSP;\nc) Stressed circumstances on the part of the OSP such as hostile takeover, insolvency or liquidation;\nd) Any other circumstance that the regulated firm envisages may prompt it to exit the arrangement. [1]",
+    "refused": false,
+    "seconds": 12.23,
+    "citations": [
+     "CBI Outsourcing Guidance, page 43"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.9628,
+     "context_precision": 0.8333,
+     "context_recall": 1.0,
+     "factual_correctness": 1.0
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"Central Bank expectations firms plan exit outsourcing arrangement\" | Keywords: exit strategies, outsourcing arrangement | Search: CBI Outsourcing Guidance, CBI Operational Resilience Guidance"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "16 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: CBI Outsourcing Guidance, page 43; CBI Outsourcing Guidance, page 45; CBI Outsourcing Guidance, page 43; CBI Outsourcing Guidance, page 42; CBI Outsourcing Guidance, page 52"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "4 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 4 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q20",
+   "category": "cbi_outsourcing",
+   "answerable": true,
+   "question": "What does concentration risk mean in the Central Bank's outsourcing guidance?",
+   "reference_answer": "Concentration risk is over-dependence on a single or small number of outsourcing service providers who cannot easily be substituted, for example where a firm relies on one or a few providers for its critical or important functions. It can also arise on a sectoral or cross-sectoral basis.",
+   "baseline": {
+    "answer": "Concentration risk, as defined in the Central Bank's outsourcing guidance, refers to the probability of loss arising from a lack of diversification of outsourcing providers. It can occur when a regulated firm depends on a single or a small number of providers for critical or important activities or functions. [1][3][4]",
+    "refused": false,
+    "seconds": 4.53,
+    "citations": [
+     "CBI Outsourcing Guidance, page 8",
+     "CBI Outsourcing Guidance, page 8",
+     "CBI Outsourcing Guidance, page 26"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.981,
+     "context_precision": 0.4778,
+     "context_recall": 1.0,
+     "factual_correctness": 0.4
+    }
+   },
+   "agent": {
+    "answer": "Concentration risk, as defined in the Central Bank's outsourcing guidance, refers to the probability of loss arising from a lack of diversification of outsourcing providers. It can occur when a regulated firm depends on a single or a small number of outsourcing providers for critical or important activities or functions. This risk is heightened if there are limited service providers, making substitution difficult, and can lead to broader systemic concerns if not managed properly. [2][3]",
+    "refused": false,
+    "seconds": 13.1,
+    "citations": [
+     "CBI Outsourcing Guidance, page 8",
+     "CBI Outsourcing Guidance, page 8"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.9348,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.57
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"What does concentration risk mean in the Central Bank of Ireland's cross-industry guidance on outsourcing?\" | Keywords: concentration risk, Central Bank, outsourcing guidance | Search: CBI Outsourcing Guidance"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "17 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: CBI Outsourcing Guidance, page 26; CBI Outsourcing Guidance, page 27; CBI Outsourcing Guidance, page 8; CBI Outsourcing Guidance, page 8; CBI Outsourcing Guidance, page 8"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "3 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 3 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q21",
+   "category": "cbi_op_resilience",
+   "answerable": true,
+   "question": "How often should a firm's board review and approve its impact tolerances?",
+   "reference_answer": "The Central Bank expects a firm's board to review and approve impact tolerances at least annually, or following a disruption, to make sure they remain fit for purpose.",
+   "baseline": {
+    "answer": "A firm’s board should review and approve impact tolerances at least annually, or following a disruption, to ensure they remain fit for purpose. [2]",
+    "refused": false,
+    "seconds": 3.03,
+    "citations": [
+     "CBI Operational Resilience Guidance, page 22"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.9955,
+     "context_precision": 0.5,
+     "context_recall": 1.0,
+     "factual_correctness": 0.5
+    }
+   },
+   "agent": {
+    "answer": "A firm’s board should review and approve impact tolerances at least annually, or following a disruption, to ensure they remain fit for purpose. [2]",
+    "refused": false,
+    "seconds": 9.17,
+    "citations": [
+     "CBI Operational Resilience Guidance, page 22"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.9955,
+     "context_precision": 0.5833,
+     "context_recall": 1.0,
+     "factual_correctness": 0.5
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"frequency board review impact tolerances\" | Keywords: frequency, board, review, impact, tolerances | Search: CBI Operational Resilience Guidance"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "15 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: CBI Operational Resilience Guidance, page 18; CBI Operational Resilience Guidance, page 22; CBI Operational Resilience Guidance, page 19; CBI Operational Resilience Guidance, page 21; CBI Operational Resilience Guidance, page 22"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "3 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 3 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q22",
+   "category": "cbi_op_resilience",
+   "answerable": true,
+   "question": "What are the three pillars of operational resilience in the Central Bank guidance?",
+   "reference_answer": "Pillar 1: Identify and Prepare; Pillar 2: Respond and Adapt; Pillar 3: Recover and Learn.",
+   "baseline": {
+    "answer": "The three pillars of operational resilience in the Central Bank guidance are:\n- Identify and Prepare [1]\n- Respond and Adapt [1]\n- Recover and Learn [1]",
+    "refused": false,
+    "seconds": 3.02,
+    "citations": [
+     "CBI Operational Resilience Guidance, page 16"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.9866,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 1.0
+    }
+   },
+   "agent": {
+    "answer": "I don't know based on the provided documents.",
+    "refused": true,
+    "seconds": 12.85,
+    "citations": [],
+    "scores": {
+     "faithfulness": 0.0,
+     "answer_relevancy": 0.0,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.0
+    },
+    "searches": 2,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"three pillars operational resilience central bank guidance\" | Keywords: three pillars, operational resilience, central bank guidance | Search: CBI Operational Resilience Guidance"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "13 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: CBI Operational Resilience Guidance, page 16; CBI Operational Resilience Guidance, page 16; CBI Operational Resilience Guidance, page 15; CBI Operational Resilience Guidance, page 14; CBI Operational Resilience Guidance, page 13"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "0 of 5 passages relevant"
+     },
+     {
+      "step": "Retry: new wording, all documents",
+      "detail": "Query: \"three pillars operational resilience central bank guidance\" | Keywords: three pillars, operational resilience, central bank guidance | Search: EU AI Act, GDPR, CBI Outsourcing Guidance, CBI Operational Resilience Guidance"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "14 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: CBI Operational Resilience Guidance, page 16; CBI Operational Resilience Guidance, page 16; CBI Operational Resilience Guidance, page 15; CBI Operational Resilience Guidance, page 14; CBI Operational Resilience Guidance, page 13"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "0 of 5 passages relevant"
+     },
+     {
+      "step": "Refuse",
+      "detail": "No relevant passage after 2 searches"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q23",
+   "category": "cbi_op_resilience",
+   "answerable": true,
+   "question": "Which older Central Bank guidance was withdrawn when the operational resilience guidance was updated in July 2025?",
+   "reference_answer": "The Central Bank withdrew its September 2016 Cross Industry Guidance in respect of Information Technology and Cybersecurity Risk Management, as part of updates that also aligned the guidance with DORA.",
+   "baseline": {
+    "answer": "The September 2016 Cross Industry Guidance in respect of Information Technology and Cybersecurity Risk Management was withdrawn when the operational resilience guidance was updated in July 2025. [2]",
+    "refused": false,
+    "seconds": 3.59,
+    "citations": [
+     "CBI Operational Resilience Guidance, page 3"
+    ],
+    "scores": {
+     "faithfulness": 0.5,
+     "answer_relevancy": 0.6875,
+     "context_precision": 0.5,
+     "context_recall": 1.0,
+     "factual_correctness": 0.4
+    }
+   },
+   "agent": {
+    "answer": "The Central Bank withdrew its September 2016 Cross Industry Guidance in respect of Information Technology and Cybersecurity Risk Management when updating the operational resilience guidance in July 2025. [1]",
+    "refused": false,
+    "seconds": 10.65,
+    "citations": [
+     "CBI Operational Resilience Guidance, page 3"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.7935,
+     "context_precision": 1.0,
+     "context_recall": 1.0,
+     "factual_correctness": 0.5
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"Which older Central Bank guidance was withdrawn when the operational resilience guidance was updated in July 2025?\" | Keywords: Central Bank, withdrawn, operational resilience, July 2025 | Search: CBI Operational Resilience Guidance"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "11 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: CBI Operational Resilience Guidance, page 3; CBI Operational Resilience Guidance, page 5; CBI Operational Resilience Guidance, page 15; CBI Operational Resilience Guidance, page 1; CBI Operational Resilience Guidance, page 13"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "1 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 1 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q24",
+   "category": "cross_document",
+   "answerable": true,
+   "question": "If a company deploys a high-risk AI system that processes personal data, how does the AI Act link to the GDPR's data protection impact assessment?",
+   "reference_answer": "Under AI Act Article 26(9), where applicable, deployers of high-risk AI systems must use the information the provider gives under Article 13 of the AI Act to comply with their obligation to carry out a data protection impact assessment under Article 35 of the GDPR. GDPR Article 35 requires a DPIA in cases such as systematic and extensive automated evaluation, including profiling, with legal or similarly significant effects.",
+   "baseline": {
+    "answer": "If a company deploys a high-risk AI system that processes personal data, the AI Act links to the GDPR's data protection impact assessment through Article 27, which states that if any of the obligations laid down in this Article is already met through the data protection impact assessment, the deployer may rely on that assessment [3].",
+    "refused": false,
+    "seconds": 4.86,
+    "citations": [
+     "EU AI Act, Article 27, page 70"
+    ],
+    "scores": {
+     "faithfulness": 0.6667,
+     "answer_relevancy": 0.8397,
+     "context_precision": 1.0,
+     "context_recall": 0.5,
+     "factual_correctness": 0.0
+    }
+   },
+   "agent": {
+    "answer": "If any of the obligations laid down in Article 27 of the EU AI Act are already met through the data protection impact assessment required by the GDPR, the company may not need to conduct a separate fundamental rights impact assessment under the AI Act [1].",
+    "refused": false,
+    "seconds": 11.29,
+    "citations": [
+     "EU AI Act, Article 27, page 70"
+    ],
+    "scores": {
+     "faithfulness": 0.0,
+     "answer_relevancy": 0.696,
+     "context_precision": 1.0,
+     "context_recall": 0.5,
+     "factual_correctness": 0.0
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"If a company deploys a high-risk AI system that processes personal data, how does the AI Act link to the GDPR's data protection impact assessment?\" | Keywords: high-risk AI system, personal data, data protection impact assessment | Search: EU AI Act, GDPR"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "17 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: EU AI Act, Recitals, page 26; EU AI Act, Article 26, page 68; EU AI Act, Article 27, page 70; EU AI Act, Recitals, page 26; EU AI Act, Article 26, page 68"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "1 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 1 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q25",
+   "category": "cross_document",
+   "answerable": true,
+   "question": "A bank wants to use AI to decide who gets a loan. Is that high-risk under the AI Act, and what right does GDPR give customers about decisions made only by automated means?",
+   "reference_answer": "Yes. AI Act Annex III point 5(b) lists AI systems intended to evaluate the creditworthiness of natural persons or establish their credit score as high-risk, except systems used to detect financial fraud. Under GDPR Article 22(1), the data subject has the right not to be subject to a decision based solely on automated processing, including profiling, that produces legal or similarly significant effects, unless the decision is necessary for a contract, authorised by Union or Member State law with safeguards, or based on explicit consent.",
+   "baseline": {
+    "answer": "Yes, under the AI Act, a bank using AI to decide who gets a loan would be considered a high-risk AI system [2][3]. The GDPR gives customers the right to obtain human intervention by the controller, express their point of view, and challenge the decision [5].",
+    "refused": false,
+    "seconds": 4.15,
+    "citations": [
+     "EU AI Act, Recitals, page 16",
+     "EU AI Act, Recitals, page 18",
+     "EU AI Act, Recitals, page 14"
+    ],
+    "scores": {
+     "faithfulness": 0.25,
+     "answer_relevancy": 0.8885,
+     "context_precision": 0.95,
+     "context_recall": 0.3333,
+     "factual_correctness": 0.67
+    }
+   },
+   "agent": {
+    "answer": "Yes, under the AI Act, a bank using AI to decide who gets a loan would be classified as a high-risk AI system [1]. According to GDPR, customers have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning them or similarly significantly affects them [2]. However, this right does not apply if the decision is necessary for entering into, or performance of, a contract between the data subject and a data controller, or if it is based on the data subject's explicit consent.",
+    "refused": false,
+    "seconds": 14.21,
+    "citations": [
+     "EU AI Act, Recitals, page 16",
+     "GDPR, Article 22, page 46"
+    ],
+    "scores": {
+     "faithfulness": 1.0,
+     "answer_relevancy": 0.8692,
+     "context_precision": 1.0,
+     "context_recall": 0.6667,
+     "factual_correctness": 0.89
+    },
+    "searches": 1,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"bank use AI loan decision high-risk AI Act GDPR automated decisions\" | Keywords: high-risk AI, AI loan decision, GDPR automated decisions, data subject rights | Search: EU AI Act, GDPR"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "18 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: EU AI Act, Recitals, page 16; EU AI Act, Recitals, page 18; EU AI Act, Recitals, page 14; GDPR, Article 22, page 46; EU AI Act, Recitals, page 14"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "2 of 5 passages relevant"
+     },
+     {
+      "step": "Answer",
+      "detail": "Answered from 2 relevant passage(s)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q26",
+   "category": "unanswerable",
+   "answerable": false,
+   "question": "What loan-to-value limit applies to first-time buyers under the Central Bank of Ireland's mortgage rules?",
+   "reference_answer": "I don't know based on the provided documents.",
+   "baseline": {
+    "answer": "I don't know based on the provided documents.",
+    "refused": true,
+    "seconds": 3.01,
+    "citations": [],
+    "scores": null
+   },
+   "agent": {
+    "answer": "I don't know based on the provided documents.",
+    "refused": true,
+    "seconds": 16.1,
+    "citations": [],
+    "scores": null,
+    "searches": 2,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"loan-to-value limit first-time buyers Central Bank of Ireland mortgage rules\" | Keywords: loan-to-value limit, first-time buyers, mortgage rules | Search: CBI Outsourcing Guidance, CBI Operational Resilience Guidance"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "17 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: CBI Operational Resilience Guidance, page 12; CBI Outsourcing Guidance, page 7; CBI Outsourcing Guidance, page 46; CBI Outsourcing Guidance, page 38; CBI Outsourcing Guidance, page 7"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "0 of 5 passages relevant"
+     },
+     {
+      "step": "Retry: new wording, all documents",
+      "detail": "Query: \"loan-to-value limit first-time buyers mortgage regulations\" | Keywords: loan-to-value limit, first-time buyers, mortgage regulations | Search: EU AI Act, GDPR, CBI Outsourcing Guidance, CBI Operational Resilience Guidance"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "20 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: CBI Outsourcing Guidance, page 62; CBI Outsourcing Guidance, page 60; EU AI Act, Article 62, page 94; GDPR, Recitals, page 8; CBI Operational Resilience Guidance, page 23"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "0 of 5 passages relevant"
+     },
+     {
+      "step": "Refuse",
+      "detail": "No relevant passage after 2 searches"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q27",
+   "category": "unanswerable",
+   "answerable": false,
+   "question": "Which Irish authority has been designated to enforce the AI Act in Ireland?",
+   "reference_answer": "I don't know based on the provided documents.",
+   "baseline": {
+    "answer": "I don't know based on the provided documents.",
+    "refused": true,
+    "seconds": 2.88,
+    "citations": [],
+    "scores": null
+   },
+   "agent": {
+    "answer": "I don't know based on the provided documents.",
+    "refused": true,
+    "seconds": 14.56,
+    "citations": [],
+    "scores": null,
+    "searches": 2,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"Which Irish authority has been designated to enforce the AI Act in Ireland\" | Keywords: Irish authority, enforce, AI Act | Search: EU AI Act"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "19 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: EU AI Act, Recitals, page 11; EU AI Act, Recitals, page 3; EU AI Act, Article 80; Article 81, page 108; EU AI Act, Recitals, page 3; EU AI Act, Recitals, page 38"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "0 of 5 passages relevant"
+     },
+     {
+      "step": "Retry: new wording, all documents",
+      "detail": "Query: \"Which Irish authority has been designated to enforce AI regulations in Ireland\" | Keywords: Irish authority, enforce, AI regulations | Search: EU AI Act, GDPR, CBI Outsourcing Guidance, CBI Operational Resilience Guidance"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "20 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: EU AI Act, Recitals, page 11; EU AI Act, Recitals, page 38; EU AI Act, Article 87; Article 88, page 110; EU AI Act, Article 76; Article 77, page 105; CBI Outsourcing Guidance, page 55"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "0 of 5 passages relevant"
+     },
+     {
+      "step": "Refuse",
+      "detail": "No relevant passage after 2 searches"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q28",
+   "category": "unanswerable",
+   "answerable": false,
+   "question": "How many complaints did the Irish Data Protection Commission receive in 2023?",
+   "reference_answer": "I don't know based on the provided documents.",
+   "baseline": {
+    "answer": "I don't know based on the provided documents.",
+    "refused": true,
+    "seconds": 2.56,
+    "citations": [],
+    "scores": null
+   },
+   "agent": {
+    "answer": "I don't know based on the provided documents.",
+    "refused": true,
+    "seconds": 14.91,
+    "citations": [],
+    "scores": null,
+    "searches": 2,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"How many complaints did the Irish Data Protection Commission receive in 2023?\" | Keywords: complaints, Irish Data Protection Commission, 2023 | Search: GDPR"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "18 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: GDPR, Article 57, page 69; GDPR, Recitals, page 26; GDPR, Recitals, page 31; GDPR, Recitals, page 24; GDPR, Recitals, page 25"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "0 of 5 passages relevant"
+     },
+     {
+      "step": "Retry: new wording, all documents",
+      "detail": "Query: \"Complaints received by the Irish Data Protection Commission in 2023\" | Keywords: complaints, Irish Data Protection Commission, 2023 | Search: EU AI Act, GDPR, CBI Outsourcing Guidance, CBI Operational Resilience Guidance"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "19 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: GDPR, Article 97; Article 98, page 87; GDPR, Article 96; Article 97, page 87; GDPR, Recitals, page 31; EU AI Act, Recitals, page 3; EU AI Act, Recitals, page 42"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "0 of 5 passages relevant"
+     },
+     {
+      "step": "Refuse",
+      "detail": "No relevant passage after 2 searches"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q29",
+   "category": "unanswerable",
+   "answerable": false,
+   "question": "Up to what amount are bank deposits protected in Ireland under the deposit guarantee scheme?",
+   "reference_answer": "I don't know based on the provided documents.",
+   "baseline": {
+    "answer": "I don't know based on the provided documents.",
+    "refused": true,
+    "seconds": 2.6,
+    "citations": [],
+    "scores": null
+   },
+   "agent": {
+    "answer": "I don't know based on the provided documents.",
+    "refused": true,
+    "seconds": 12.98,
+    "citations": [],
+    "scores": null,
+    "searches": 2,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"deposit guarantee scheme limit Ireland financial institutions\" | Keywords: deposit guarantee scheme, limit, Ireland | Search: CBI Outsourcing Guidance, CBI Operational Resilience Guidance"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "12 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: CBI Operational Resilience Guidance, page 12; CBI Outsourcing Guidance, page 54; CBI Outsourcing Guidance, page 4; CBI Outsourcing Guidance, page 4; CBI Outsourcing Guidance, page 55"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "0 of 5 passages relevant"
+     },
+     {
+      "step": "Retry: new wording, all documents",
+      "detail": "Query: \"deposit guarantee scheme limit Ireland financial institutions\" | Keywords: deposit guarantee scheme, limit, Ireland, financial institutions | Search: EU AI Act, GDPR, CBI Outsourcing Guidance, CBI Operational Resilience Guidance"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "16 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: CBI Operational Resilience Guidance, page 12; CBI Outsourcing Guidance, page 54; CBI Outsourcing Guidance, page 4; CBI Outsourcing Guidance, page 4; CBI Outsourcing Guidance, page 55"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "0 of 5 passages relevant"
+     },
+     {
+      "step": "Refuse",
+      "detail": "No relevant passage after 2 searches"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q30",
+   "category": "unanswerable",
+   "answerable": false,
+   "question": "When will the digital euro be launched?",
+   "reference_answer": "I don't know based on the provided documents.",
+   "baseline": {
+    "answer": "I don't know based on the provided documents.",
+    "refused": true,
+    "seconds": 2.62,
+    "citations": [],
+    "scores": null
+   },
+   "agent": {
+    "answer": "I don't know based on the provided documents.",
+    "refused": true,
+    "seconds": 15.1,
+    "citations": [],
+    "scores": null,
+    "searches": 2,
+    "steps": [
+     {
+      "step": "Rewrite & route",
+      "detail": "Query: \"When will the digital euro be launched?\" | Keywords: digital euro, launch, date | Search: EU AI Act, GDPR, CBI Outsourcing Guidance, CBI Operational Resilience Guidance"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "20 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: CBI Operational Resilience Guidance, page 11; EU AI Act, Article 112; Article 113, page 123; EU AI Act, Recitals, page 36; EU AI Act, Recitals, page 15; GDPR, Article 96; Article 97, page 87"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "0 of 5 passages relevant"
+     },
+     {
+      "step": "Retry: new wording, all documents",
+      "detail": "Query: \"Date of launch digital currency\" | Keywords: date, launch, digital, currency | Search: EU AI Act, GDPR, CBI Outsourcing Guidance, CBI Operational Resilience Guidance"
+     },
+     {
+      "step": "Hybrid search",
+      "detail": "20 unique passages from vector + keyword search"
+     },
+     {
+      "step": "Rerank",
+      "detail": "Kept best 5: CBI Operational Resilience Guidance, page 3; EU AI Act, Recitals; Article 1, page 44; GDPR, Article 96; Article 97, page 87; EU AI Act, Recitals, page 3; GDPR, Article 98; Article 99, page 87"
+     },
+     {
+      "step": "Grade passages",
+      "detail": "0 of 5 passages relevant"
+     },
+     {
+      "step": "Refuse",
+      "detail": "No relevant passage after 2 searches"
+     }
+    ]
+   }
+  }
+ ]
+}
