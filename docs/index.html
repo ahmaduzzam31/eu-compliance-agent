@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EU Compliance Agent: results</title>
+<meta name="description" content="Evaluation dashboard: agentic RAG against basic RAG on the EU AI Act, GDPR and Central Bank of Ireland guidance, all run locally.">
+<style>
+  :root {
+    color-scheme: light;
+    --surface-0: #f4f3f0;
+    --surface-1: #fcfcfb;
+    --border: #e2e1dc;
+    --grid: #e8e7e2;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted: #6b6a66;
+    --baseline: #eb6834;
+    --agent: #2a78d6;
+    --link: #1c5cab;
+    --warn-bg: #fff4e0;
+    --ok-bg: #e7f4ec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --surface-0: #121211;
+      --surface-1: #1a1a19;
+      --border: #2f2f2c;
+      --grid: #2a2a28;
+      --text-primary: #f0efec;
+      --text-secondary: #c3c2b7;
+      --text-muted: #9c9b93;
+      --baseline: #d95926;
+      --agent: #3987e5;
+      --link: #86b6ef;
+      --warn-bg: #3a2c12;
+      --ok-bg: #16301f;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --surface-0: #121211;
+    --surface-1: #1a1a19;
+    --border: #2f2f2c;
+    --grid: #2a2a28;
+    --text-primary: #f0efec;
+    --text-secondary: #c3c2b7;
+    --text-muted: #9c9b93;
+    --baseline: #d95926;
+    --agent: #3987e5;
+    --link: #86b6ef;
+    --warn-bg: #3a2c12;
+    --ok-bg: #16301f;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--surface-0); color: var(--text-primary);
+    font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  a { color: var(--link); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 16px 60px; }
+  header h1 { font-size: 28px; line-height: 1.2; margin: 0 0 6px; }
+  header p { margin: 4px 0; color: var(--text-secondary); max-width: 760px; }
+  .meta { font-size: 13px; color: var(--text-muted); }
+  h2 { font-size: 19px; margin: 36px 0 4px; }
+  .sub { color: var(--text-secondary); margin: 0 0 14px; font-size: 14px; max-width: 780px; }
+  .card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-top: 22px; }
+  .tile .label { font-size: 13px; color: var(--text-secondary); }
+  .tile .big { font-size: 30px; font-weight: 650; font-variant-numeric: tabular-nums; margin: 2px 0; }
+  .tile .vs { font-size: 13px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  .sw.b { background: var(--baseline); } .sw.a { background: var(--agent); }
+  .dot.b { background: var(--baseline); } .dot.a { background: var(--agent); }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  svg text { fill: var(--text-secondary); font-size: 12px; font-family: inherit; }
+  svg .val { fill: var(--text-primary); font-variant-numeric: tabular-nums; }
+  svg .gridline { stroke: var(--grid); stroke-width: 1; }
+  svg .hit { fill: transparent; }
+  svg .row:hover .hit { fill: var(--grid); fill-opacity: .5; }
+  .controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; font-size: 14px; }
+  select { font: inherit; padding: 6px 8px; border-radius: 6px; border: 1px solid var(--border);
+           background: var(--surface-1); color: var(--text-primary); max-width: 100%; }
+  details { margin-top: 12px; font-size: 14px; }
+  summary { cursor: pointer; color: var(--text-secondary); }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--text-secondary); font-weight: 600; }
+  .scroll { overflow-x: auto; }
+  #tip { position: fixed; pointer-events: none; z-index: 10; background: var(--surface-1); color: var(--text-primary);
+         border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 13px;
+         box-shadow: 0 4px 14px rgba(0,0,0,.15); display: none; max-width: 280px; font-variant-numeric: tabular-nums; }
+  #tip .t { font-weight: 600; margin-bottom: 4px; }
+  #tip .r { display: flex; align-items: center; gap: 6px; }
+  .qa { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+  @media (max-width: 720px) { .qa { grid-template-columns: 1fr; } }
+  .ans h3 { font-size: 15px; margin: 0 0 6px; display: flex; align-items: center; gap: 8px; }
+  .ans p { margin: 0 0 8px; white-space: pre-wrap; }
+  .badge { font-size: 12px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--text-secondary); }
+  .badge.refused { background: var(--warn-bg); }
+  .ref { background: var(--ok-bg); border-radius: 8px; padding: 10px 12px; margin-top: 10px; font-size: 14px; }
+  .cites { font-size: 13px; color: var(--text-secondary); margin: 0; padding-left: 18px; }
+  .scores { font-size: 13px; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+  .steps { font-size: 13px; color: var(--text-secondary); margin: 6px 0 0; padding-left: 18px; }
+  .notes li { margin-bottom: 6px; }
+  footer { margin-top: 40px; font-size: 13px; color: var(--text-muted); }
+  .theme { float: right; font: inherit; font-size: 13px; padding: 4px 10px; border-radius: 6px;
+           border: 1px solid var(--border); background: var(--surface-1); color: var(--text-secondary); cursor: pointer; }
+  #err { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <button class="theme" id="themeBtn" type="button">Switch theme</button>
+    <h1>EU Compliance Agent: evaluation results</h1>
+    <p>Two question-answering systems over the EU AI Act, GDPR and two Central Bank of Ireland guidance documents, tested on the same 30 questions. Both run fully on a laptop with free, local models.</p>
+    <p class="meta" id="runMeta"></p>
+    <p class="meta"><a href="https://github.com/ahmaduzzam31/eu-compliance-agent">Code and README on GitHub</a>. Every number on this page is read from <code>docs/data.json</code>, which a script builds from the saved files in <code>results/</code>.</p>
+  </header>
+  <p id="err" class="card">Could not load data.json. Open this page through a web server (for example GitHub Pages), not as a local file.</p>
+
+  <div class="tiles" id="tiles"></div>
+
+  <h2>RAGAS scores (25 answerable questions)</h2>
+  <p class="sub">Scores run from 0 to 1, higher is better. The judge is the same local model (qwen2.5:7b), so treat small gaps with care.</p>
+  <div class="card">
+    <div class="legend"><span><i class="sw b"></i>Baseline RAG</span><span><i class="sw a"></i>Agentic RAG</span></div>
+    <div id="barChart"></div>
+    <details><summary>Show as a table</summary><div class="scroll"><table id="barTable"></table></div></details>
+  </div>
+
+  <h2>Question by question</h2>
+  <p class="sub">Each row is one answerable question. The line joins the two systems' scores, so a long line means they disagreed a lot. Click a row to read both answers below.</p>
+  <div class="card">
+    <div class="controls">
+      <label for="metricSel">Measure</label>
+      <select id="metricSel"></select>
+      <span class="legend" style="margin:0"><span><i class="dot b"></i>Baseline</span><span><i class="dot a"></i>Agent</span></span>
+    </div>
+    <div id="dumbbell"></div>
+    <details><summary>Show as a table</summary><div class="scroll"><table id="qTable"></table></div></details>
+  </div>
+
+  <h2>Example questions and answers</h2>
+  <p class="sub">The real saved answers from the evaluation run, with the checked reference answer and the agent's steps.</p>
+  <div class="card">
+    <div class="controls"><label for="qSel">Question</label><select id="qSel"></select></div>
+    <div id="qView"></div>
+  </div>
+
+  <h2>What the results say</h2>
+  <div class="card">
+    <ul class="notes" id="notes"></ul>
+  </div>
+
+  <h2>Set-up</h2>
+  <div class="card">
+    <div class="scroll"><table id="srcTable"></table></div>
+    <p class="scores" id="settings" style="margin-top:12px"></p>
+  </div>
+
+  <footer>Portfolio project by Ahmad Uzzam. The answers can be wrong and are not legal advice. Test questions were drafted with AI help and checked by hand.</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  const root = document.documentElement;
+  const btn = document.getElementById("themeBtn");
+  try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (e) {}
+  btn.addEventListener("click", () => {
+    const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+    try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+  });
+})();
+
+const NS = "http://www.w3.org/2000/svg";
+const METRICS = ["faithfulness", "answer_relevancy", "context_precision", "context_recall", "factual_correctness"];
+const SYS = [["baseline", "Baseline RAG", "b"], ["agent", "Agentic RAG", "a"]];
+const tip = document.getElementById("tip");
+
+function el(tag, attrs = {}, text) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (text !== undefined) e.textContent = text;
+  return e;
+}
+function svg(tag, attrs = {}, text) {
+  const e = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (text !== undefined) e.textContent = text;
+  return e;
+}
+function fmt(v) { return v === null || v === undefined ? "n/a" : (+v).toFixed(2); }
+function showTip(evt, title, rows) {
+  tip.replaceChildren(el("div", { class: "t" }, title));
+  for (const [cls, label, val] of rows) {
+    const r = el("div", { class: "r" });
+    if (cls) r.append(el("i", { class: "dot " + cls }));
+    r.append(document.createTextNode(label + ": " + val));
+    tip.append(r);
+  }
+  tip.style.display = "block";
+  const pad = 14, w = tip.offsetWidth, h = tip.offsetHeight;
+  let x = evt.clientX + pad, y = evt.clientY + pad;
+  if (x + w > innerWidth - 8) x = evt.clientX - w - pad;
+  if (y + h > innerHeight - 8) y = evt.clientY - h - pad;
+  tip.style.left = Math.max(8, x) + "px"; tip.style.top = Math.max(8, y) + "px";
+}
+function hideTip() { tip.style.display = "none"; }
+function fillTable(table, head, rows) {
+  const tr = el("tr"); head.forEach(h => tr.append(el("th", {}, h)));
+  const thead = el("thead"); thead.append(tr);
+  const tbody = el("tbody");
+  rows.forEach(r => { const t = el("tr"); r.forEach(c => t.append(el("td", {}, c))); tbody.append(t); });
+  table.replaceChildren(thead, tbody);
+}
+
+function tiles(d) {
+  const b = d.systems.baseline, a = d.systems.agent;
+  const items = [
+    ["Context precision (agent)", fmt(a.ragas.context_precision.mean), "baseline " + fmt(b.ragas.context_precision.mean)],
+    ["Factual correctness (agent)", fmt(a.ragas.factual_correctness.mean), "baseline " + fmt(b.ragas.factual_correctness.mean)],
+    ["Unanswerable questions refused (agent)", a.refusals.unanswerable_correctly_refused + " of " + a.refusals.unanswerable_total,
+     "baseline " + b.refusals.unanswerable_correctly_refused + " of " + b.refusals.unanswerable_total],
+    ["Answerable questions wrongly refused (agent)", a.refusals.answerable_wrongly_refused + " of " + a.refusals.answerable_total,
+     "baseline " + b.refusals.answerable_wrongly_refused + " of " + b.refusals.answerable_total],
+    ["Mean seconds per answer (agent)", a.timing.mean_seconds.toFixed(2), "baseline " + b.timing.mean_seconds.toFixed(2)],
+  ];
+  const box = document.getElementById("tiles");
+  items.forEach(([l, big, vs]) => {
+    const t = el("div", { class: "card tile" });
+    t.append(el("div", { class: "label" }, l), el("div", { class: "big" }, big), el("div", { class: "vs" }, vs));
+    box.append(t);
+  });
+}
+
+function barChart(d) {
+  const box = document.getElementById("barChart");
+  const W = Math.max(300, box.clientWidth), labelW = W < 520 ? 120 : 170, right = 44;
+  const barH = 12, gap = 2, groupGap = 22, top = 6;
+  const groupH = barH * 2 + gap;
+  const H = top + METRICS.length * (groupH + groupGap) + 18;
+  const plotW = W - labelW - right;
+  const x = v => labelW + v * plotW;
+  const s = svg("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img",
+                         "aria-label": "Bar chart of mean RAGAS scores for both systems" });
+  [0, 0.25, 0.5, 0.75, 1].forEach(t => {
+    s.append(svg("line", { class: "gridline", x1: x(t), x2: x(t), y1: top - 4, y2: H - 18 }));
+    s.append(svg("text", { x: x(t), y: H - 4, "text-anchor": "middle" }, t));
+  });
+  METRICS.forEach((m, i) => {
+    const y0 = top + i * (groupH + groupGap);
+    const g = svg("g", { class: "row" });
+    g.append(svg("rect", { class: "hit", x: 0, y: y0 - 6, width: W, height: groupH + 12, rx: 4 }));
+    const lbl = d.metric_labels[m].replace(" (F1)", "");
+    g.append(svg("text", { x: labelW - 10, y: y0 + groupH / 2 + 4, "text-anchor": "end" }, lbl));
+    SYS.forEach(([k], j) => {
+      const v = d.systems[k].ragas[m].mean ?? 0;
+      const y = y0 + j * (barH + gap);
+      const w = Math.max(5, v * plotW);
+      g.append(svg("path", { d: `M${labelW},${y} h${w - 4} a4,4 0 0 1 4,4 v${barH - 8} a4,4 0 0 1 -4,4 h${-(w - 4)} z`,
+                             fill: `var(--${k})` }));
+      g.append(svg("text", { class: "val", x: labelW + w + 6, y: y + barH - 2 }, fmt(v)));
+    });
+    g.addEventListener("mousemove", e => showTip(e, d.metric_labels[m],
+      SYS.map(([k, n, c]) => [c, n, fmt(d.systems[k].ragas[m].mean) + " (" + d.systems[k].ragas[m].scored + " scored)"])));
+    g.addEventListener("mouseleave", hideTip);
+    s.append(g);
+  });
+  box.replaceChildren(s);
+  fillTable(document.getElementById("barTable"), ["Measure", "Baseline RAG", "Agentic RAG", "Scored (each)"],
+    METRICS.map(m => [d.metric_labels[m], String(d.systems.baseline.ragas[m].mean), String(d.systems.agent.ragas[m].mean),
+                      d.systems.baseline.ragas[m].scored + " / " + d.systems.agent.ragas[m].scored]));
+}
+
+function dumbbell(d, m) {
+  const box = document.getElementById("dumbbell");
+  const qs = d.questions.filter(q => q.answerable);
+  const W = Math.max(300, box.clientWidth), labelW = 46, right = 16, rowH = 22, top = 6;
+  const H = top + qs.length * rowH + 22, plotW = W - labelW - right;
+  const x = v => labelW + v * plotW;
+  const s = svg("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img",
+                         "aria-label": "Per-question scores for both systems" });
+  [0, 0.25, 0.5, 0.75, 1].forEach(t => {
+    s.append(svg("line", { class: "gridline", x1: x(t), x2: x(t), y1: top, y2: H - 20 }));
+    s.append(svg("text", { x: x(t), y: H - 6, "text-anchor": "middle" }, t));
+  });
+  qs.forEach((q, i) => {
+    const cy = top + i * rowH + rowH / 2;
+    const vb = q.baseline.scores?.[m], va = q.agent.scores?.[m];
+    const g = svg("g", { class: "row", style: "cursor:pointer" });
+    g.append(svg("rect", { class: "hit", x: 0, y: cy - rowH / 2, width: W, height: rowH, rx: 3 }));
+    g.append(svg("text", { x: 0, y: cy + 4 }, q.id));
+    if (vb != null && va != null)
+      g.append(svg("line", { x1: x(vb), x2: x(va), y1: cy, y2: cy, stroke: "var(--text-muted)", "stroke-width": 2, "stroke-opacity": .5 }));
+    [["baseline", vb], ["agent", va]].forEach(([k, v]) => {
+      if (v == null) return;
+      g.append(svg("circle", { cx: x(v), cy, r: 5, fill: `var(--${k})`, stroke: "var(--surface-1)", "stroke-width": 2 }));
+    });
+    g.addEventListener("mousemove", e => showTip(e, q.id + ": " + q.question.slice(0, 80) + (q.question.length > 80 ? "..." : ""),
+      [["b", "Baseline", fmt(vb) + (q.baseline.refused ? " (refused)" : "")],
+       ["a", "Agent", fmt(va) + (q.agent.refused ? " (refused)" : "")]]));
+    g.addEventListener("mouseleave", hideTip);
+    g.addEventListener("click", () => { document.getElementById("qSel").value = q.id; showQuestion(d, q.id);
+      document.getElementById("qSel").scrollIntoView({ behavior: "smooth", block: "center" }); });
+    s.append(g);
+  });
+  box.replaceChildren(s);
+  fillTable(document.getElementById("qTable"), ["Question", "Baseline", "Agent"],
+    qs.map(q => [q.id, String(q.baseline.scores?.[m] ?? "n/a"), String(q.agent.scores?.[m] ?? "n/a")]));
+}
+
+function showQuestion(d, id) {
+  const q = d.questions.find(x => x.id === id);
+  const view = document.getElementById("qView");
+  const head = el("div");
+  head.append(el("p", { style: "margin:0 0 4px;font-weight:600" }, q.question));
+  head.append(el("p", { class: "scores", style: "margin:0" },
+    "Topic: " + q.category.replaceAll("_", " ") + (q.answerable ? "" : " (the documents do not contain the answer)")));
+  const ref = el("div", { class: "ref" });
+  ref.append(el("strong", {}, "Checked reference answer: "), document.createTextNode(q.reference_answer));
+  const grid = el("div", { class: "qa" });
+  SYS.forEach(([k, name]) => {
+    const r = q[k];
+    const c = el("div", { class: "card ans" });
+    const h = el("h3"); h.append(el("i", { class: "sw " + (k === "agent" ? "a" : "b") }), document.createTextNode(name));
+    h.append(el("span", { class: "badge" + (r.refused ? " refused" : "") }, r.refused ? "refused" : r.seconds + " s"));
+    c.append(h, el("p", {}, r.answer));
+    if (r.citations.length) {
+      const ul = el("ul", { class: "cites" });
+      r.citations.forEach(t => ul.append(el("li", {}, t)));
+      c.append(ul);
+    }
+    if (r.scores) c.append(el("p", { class: "scores", style: "margin-top:8px" },
+      METRICS.map(m => d.metric_labels[m].replace(" (F1)", "") + " " + fmt(r.scores[m])).join(" · ")));
+    if (k === "agent" && r.steps) {
+      const det = el("details"); det.append(el("summary", {}, "Agent steps (" + r.searches + " search" + (r.searches > 1 ? "es" : "") + ")"));
+      const ol = el("ol", { class: "steps" });
+      r.steps.forEach(st => ol.append(el("li", {}, st.step + ": " + st.detail)));
+      det.append(ol); c.append(det);
+    }
+    grid.append(c);
+  });
+  view.replaceChildren(head, ref, grid);
+}
+
+function notes(d) {
+  const b = d.systems.baseline, a = d.systems.agent;
+  const items = [
+    `The agent found better passages: context precision ${a.ragas.context_precision.mean} against ${b.ragas.context_precision.mean}. Context recall (${a.ragas.context_recall.mean} against ${b.ragas.context_recall.mean}) and answer relevancy (${a.ragas.answer_relevancy.mean} against ${b.ragas.answer_relevancy.mean}) also rose a little.`,
+    `Better passages did not give more correct answers: factual correctness was ${a.ragas.factual_correctness.mean} for the agent and ${b.ragas.factual_correctness.mean} for the baseline. The 7B model writing the final answer is the weak link.`,
+    `Both systems refused all ${a.refusals.unanswerable_total} unanswerable questions. The agent wrongly refused ${a.refusals.answerable_wrongly_refused} answerable questions and the baseline ${b.refusals.answerable_wrongly_refused}. In Q22 the agent found the right pages but its grading step rejected all of them, then retried with the same wording.`,
+    `The agent is slower: ${a.timing.mean_seconds} s per answer on average against ${b.timing.mean_seconds} s, because it makes several extra model calls (rewrite, five grades, sometimes a retry).`,
+    `Limits: only 30 questions, one run, and the same small model answers and judges. Single-question scores from the judge can be wrong, so read the answers, not only the numbers.`,
+  ];
+  const ul = document.getElementById("notes");
+  items.forEach(t => ul.append(el("li", {}, t)));
+}
+
+function setup(d) {
+  fillTable(document.getElementById("srcTable"), ["Document", "Publisher", "Version", "Pages", "Passages"],
+    d.sources.map(s => [s.title, s.publisher, s.version, s.pages, String(d.index.chunks_per_doc[s.doc_id])]));
+  const st = d.settings, r = d.run;
+  document.getElementById("settings").textContent =
+    `Chat and judge model: ${st.chat_model}. Embeddings: ${st.embedding_model}. Reranker: ${st.reranker}. ` +
+    `Passages: ${st.chunk_size} characters with ${st.chunk_overlap} overlap, ${d.index.total_chunks} in total. ` +
+    `Top ${st.top_k} passages per answer, temperature ${st.temperature}. RAGAS ${st.ragas_version}.`;
+  document.getElementById("runMeta").textContent =
+    `Evaluation run ${r.run_started_utc.replace("T", " ").replace("Z", " UTC")} to ${r.run_finished_utc.slice(11, 16)} UTC ` +
+    `(${r.total_seconds} seconds in total on a MacBook Air M5, 16 GB).`;
+}
+
+fetch("data.json").then(r => r.json()).then(d => {
+  tiles(d); notes(d); setup(d);
+  const ms = document.getElementById("metricSel");
+  METRICS.forEach(m => ms.append(el("option", { value: m }, d.metric_labels[m])));
+  ms.value = "factual_correctness";
+  const qs = document.getElementById("qSel");
+  d.questions.forEach(q => qs.append(el("option", { value: q.id }, q.id + ": " + q.question)));
+  qs.value = "Q17";
+  const draw = () => { barChart(d); dumbbell(d, ms.value); };
+  draw(); showQuestion(d, qs.value);
+  ms.addEventListener("change", () => dumbbell(d, ms.value));
+  qs.addEventListener("change", () => showQuestion(d, qs.value));
+  let t; addEventListener("resize", () => { clearTimeout(t); t = setTimeout(draw, 150); });
+}).catch(() => { document.getElementById("err").style.display = "block"; });
+</script>
+</body>
+</html>
